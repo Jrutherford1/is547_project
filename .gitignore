@@ -1,0 +1,7 @@
+# PyCharm specific
+.idea/
+
+# macOS specific
+.DS_Store
+
+data/
