@@ -81,7 +81,43 @@ def process_csv(csv_path=CSV_OUTPUT):
     df_cleaned.to_csv(cleaned_csv, index=False)
     return df_cleaned
 
-# Main execution for testing
-if __name__ == "__main__":
-    df = generate_names_csv()
-    process_csv()
+
+def build_final_filenames(input_csv="data/manually_updated_committee_names.csv",
+                          output_csv="data/final_updated_committee_names.csv"):
+    """
+    Builds final filenames using manually updated dates and saves to a new CSV.
+    Replaces 'unknown' dates with dates from the Extracted Date column when available.
+    """
+    # Load the manually updated CSV
+    df = pd.read_csv(input_csv)
+
+    # Ensure required columns exist
+    required_columns = ["Committee", "Document Type", "Original File Name",
+                        "Extracted Date", "Proposed File Name"]
+    for col in required_columns:
+        if col not in df.columns:
+            raise ValueError(f"Required column '{col}' not found in {input_csv}")
+
+    # Function to update filename with new date
+    def update_filename(row):
+        date = row["Extracted Date"]
+        # If date was 'unknown' but now has a valid date format
+        if ("unknown" in str(row["Proposed File Name"]).lower() and
+                date != "unknown" and pd.notna(date)):
+            # Extract file extension
+            file_ext = os.path.splitext(row["Original File Name"])[1]
+            # Build new filename with updated date
+            return f"{row['Committee']}_{row['Document Type']}_{date}{file_ext}"
+        return row["Proposed File Name"]
+
+    # Apply the update function to create final filenames
+    df["Final File Name"] = df.apply(update_filename, axis=1)
+
+    # Save the updated DataFrame to CSV
+    df.to_csv(output_csv, index=False)
+    print(f"Final filenames saved to {output_csv}")
+    print(f"Rows processed: {len(df)}")
+
+    return df
+
+

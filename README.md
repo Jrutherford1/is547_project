@@ -53,6 +53,8 @@ I love openrefien, i really feel I can trust it to not lose my data!  I don't tr
 
 Repo URL: https://github.com/Jrutherford1/is547_project
 
-now that I've manually added all the dates, I need to run that back through to get the proposed file names.  one quesiton is duplicates???  how do I handle these??
+now that I've manually added all the dates, I need to run that back through to get the proposed file names (DONE).  one quesiton is duplicates???  how do I handle these??  I'm going to leave any duplicates, it is better to have them than to lose them.  Also any document with "unknown" now legit has an unknown date given the file name information we had - it could be dated if someone wanted to manually open each file and put date in name to run back through the process in the future.
+
+
 
 --------

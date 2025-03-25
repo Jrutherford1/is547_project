@@ -29,7 +29,6 @@ def find_file_types(directory):
 def list_committees_and_count(directory):
     committee_count = 0
     committees_path = os.path.join(directory)
-
     if os.path.exists(committees_path):
         for committee_name in os.listdir(committees_path):
             committee_path = os.path.join(committees_path, committee_name)
