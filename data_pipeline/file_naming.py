@@ -81,7 +81,161 @@ def process_csv(csv_path=CSV_OUTPUT):
     df_cleaned.to_csv(cleaned_csv, index=False)
     return df_cleaned
 
-# Main execution for testing
-if __name__ == "__main__":
-    df = generate_names_csv()
-    process_csv()
+
+def build_final_filenames(input_csv="data/manually_updated_committee_names.csv",
+                          output_csv="data/final_updated_committee_names.csv"):
+    """
+    Builds final filenames using manually updated dates and saves to a new CSV.
+    Replaces 'unknown' dates with dates from the Extracted Date column when available.
+    """
+    # Load the manually updated CSV
+    df = pd.read_csv(input_csv)
+
+    # Ensure required columns exist
+    required_columns = ["Committee", "Document Type", "Original File Name",
+                        "Extracted Date", "Proposed File Name"]
+    for col in required_columns:
+        if col not in df.columns:
+            raise ValueError(f"Required column '{col}' not found in {input_csv}")
+
+    # Function to update filename with new date
+    def update_filename(row):
+        date = row["Extracted Date"]
+        # If date was 'unknown' but now has a valid date format
+        if ("unknown" in str(row["Proposed File Name"]).lower() and
+                date != "unknown" and pd.notna(date)):
+            # Extract file extension
+            file_ext = os.path.splitext(row["Original File Name"])[1]
+            # Build new filename with updated date
+            return f"{row['Committee']}_{row['Document Type']}_{date}{file_ext}"
+        return row["Proposed File Name"]
+
+    # Apply the update function to create final filenames
+    df["Final File Name"] = df.apply(update_filename, axis=1)
+
+    # Save the updated DataFrame to CSV
+    df.to_csv(output_csv, index=False)
+    print(f"Final filenames saved to {output_csv}")
+    print(f"Rows processed: {len(df)}")
+
+    return df
+
+
+def verify_folder_structure(processed_dir="data/Processed_Committees",
+                            final_csv="data/final_updated_committee_names.csv"):
+    """
+    Verifies that the folder structure in final_updated_committee_names.csv matches
+    the actual structure in Processed_Committees.
+    Returns True if all matches, False if any mismatches are found, and prints details.
+    """
+
+    # Load the final updated CSV
+    df = pd.read_csv(final_csv)
+
+    # Ensure required columns exist
+    required_columns = ["Committee", "Document Type", "Original File Name"]
+    for col in required_columns:
+        if col not in df.columns:
+            raise ValueError(f"Required column '{col}' not found in {final_csv}")
+
+    all_match = True
+    mismatch_count = 0
+
+    # Check each row in the CSV
+    for index, row in df.iterrows():
+        # Construct the expected path based on CSV data
+        expected_rel_path = os.path.join(
+            row["Committee"],
+            row["Document Type"],
+            row["Original File Name"]
+        )
+        expected_full_path = os.path.join(processed_dir, expected_rel_path)
+
+        # Check if the committee directory exists
+        committee_path = os.path.join(processed_dir, row["Committee"])
+        if not os.path.isdir(committee_path):
+            print(f"Error at row {index}: Committee directory not found: {committee_path}")
+            all_match = False
+            mismatch_count += 1
+            continue
+
+        # Check if the document type subdirectory exists
+        doc_type_path = os.path.join(committee_path, row["Document Type"])
+        if not os.path.isdir(doc_type_path):
+            print(f"Error at row {index}: Document Type directory not found: {doc_type_path}")
+            all_match = False
+            mismatch_count += 1
+            continue
+
+        # Check if the original file exists
+        if not os.path.isfile(expected_full_path):
+            print(f"Error at row {index}: File not found at expected path: {expected_full_path}")
+            all_match = False
+            mismatch_count += 1
+
+    # Summary report
+    if all_match:
+        print(f"Verification complete: All {len(df)} entries match the folder structure in {processed_dir}")
+    else:
+        print(f"Verification complete: Found {mismatch_count} mismatches out of {len(df)} entries")
+
+    return all_match
+
+
+
+def rename_processed_files(processed_dir="data/Processed_Committees",
+                           final_csv="data/final_updated_committee_names.csv"):
+    """
+    Renames files in Processed_Committees using final filenames from the CSV.
+    Preserves the original folder structure and only modifies Processed_Committees.
+    """
+
+    # Load the final updated CSV
+    df = pd.read_csv(final_csv)
+
+    # Ensure required columns exist
+    required_columns = ["Original File Name", "Final File Name"]
+    for col in required_columns:
+        if col not in df.columns:
+            raise ValueError(f"Required column '{col}' not found in {final_csv}")
+
+    # Create a mapping of original paths to final filenames
+    rename_map = {}
+    for _, row in df.iterrows():
+        # Reconstruct the original path in Processed_Committees
+        original_rel_path = os.path.join(
+            row["Committee"],
+            row["Document Type"],
+            row["Original File Name"]
+        )
+        original_full_path = os.path.join(processed_dir, original_rel_path)
+
+        # Get the final filename (just the filename, not full path)
+        final_filename = row["Final File Name"]
+
+        # Construct the final full path (keeping same directory structure)
+        final_full_path = os.path.join(
+            processed_dir,
+            row["Committee"],
+            row["Document Type"],
+            final_filename
+        )
+
+        rename_map[original_full_path] = final_full_path
+
+    # Perform the renaming
+    renamed_count = 0
+    for original_path, new_path in rename_map.items():
+        if os.path.exists(original_path):
+            # Ensure the destination directory exists
+            os.makedirs(os.path.dirname(new_path), exist_ok=True)
+            os.rename(original_path, new_path)
+            renamed_count += 1
+            print(f"Renamed: {original_path} -> {new_path}")
+        else:
+            print(f"Warning: File not found for renaming: {original_path}")
+
+    print(f"Total files renamed: {renamed_count}")
+    return renamed_count
+
+
