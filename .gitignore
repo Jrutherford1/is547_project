@@ -4,4 +4,5 @@
 # macOS specific
 .DS_Store
 
-data/
+data/Committees
+data/Processed_Committees
