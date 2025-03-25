@@ -1,16 +1,15 @@
+
 import os
 
-#Get simple file count to check accuracy, I know it is 2204.  Excludes mac .DS_Store files
+# Get simple file count to check accuracy. Excludes mac .DS_Store files
 def count_files(directory):
     file_count = 0
-
     for root, dirs, files in os.walk(directory):
-        for file_name in files:
-            # Exclude .DS_Store and any hidden system files
-            if not file_name.startswith("."):
+        for file in files:
+            if file != ".DS_Store":  # Exclude .DS_Store files
                 file_count += 1
+    return file_count
 
-    print(f"Total number of valid files (excluding system files): {file_count}")
 
 
 # Get file types and count of each type for scoping and planning
@@ -29,7 +28,7 @@ def find_file_types(directory):
 # Get list of committees and count of each committee for scoping and planning
 def list_committees_and_count(directory):
     committee_count = 0
-    committees_path = os.path.join(directory, 'Committees')
+    committees_path = os.path.join(directory)
 
     if os.path.exists(committees_path):
         for committee_name in os.listdir(committees_path):

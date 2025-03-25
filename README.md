@@ -27,8 +27,32 @@ Fixity: While Box’s versioning history adds a layer of provenance to the docum
 ------------------------
 3/21/2025 
 I have the data in a folder and I have explored the data. I have extracted the committee name, file type, and file name. I have also extracted the date from the file name. I have put this information into a csv file. I have also created a new file name that is consistent with the committee name, file type, and date. I have not added fixity to the files yet. I have not created the old directory structure yet. I have not put all the files into one folder yet. I have not done metadata enhancement. I have not built a file to hold the curated metadata. What I need to do before all that - 
-- I need to manually go through the data, now that I have a visual of the data and I need to sort name and type the Administrative council files.  The collection development committee needs sorted by type, Anything "Related Document" needs skipped as no dates exist and are not important for those files, what is important is that they remain with the set of data they are associateed to (by committee), must keep original name.
+- I need to manually go through the data, now that I have a visual of the data and I need to sort name and type the Administrative council files (DONE).  The collection development committee needs sorted by type (DONE). Anything "Related Document" needs skipped as no dates exist and are not important for those files, what is important is that they remain with the set of data they are associateed to (by committee), must keep original name.
       - first go back to original data and sort
       - then run the processes again
-      - then manually add dates to pertinant files and save a new csv "manually_cleanded_names.csv"   
- 
+      - then manually add dates to pertinent files and save a new csv "manually_cleanded_names.csv"   
+  -  then update the names
+  - then append metadata??
+  - add fixity??
+  - ADD NOTES ABOUT THE OPEN NATURE OF THE COMMITTEES AND ATTACH DATA POLICY
+ ---------------------------
+3/24/2025
+Thoughts about DCC curation lifecycle and how this may work:
+We are receiving the documents through Wordpress media as it is uploaded through the plugin.  That means the data must be manually extracted, say, annually.  That is the appraisal, look for changes, new committees in ingestion process, then a preservation action is to put in folders in box, but that then goes into the process I’m developing for proper curation and access and reuse, so it needs cleaning, naming, metadata attached, fixity, then placed back in box with documentation for provenance.  Now that last part could be running the process to put that archive of information within the existing archive, files, folders, expanded.  I’m not sure how that would work.
+Sorting Admin Council agenda and minutes - a mess because some are both, some aren't.  
+
+I manually changed the data and deleted a duplicate file and now the right number of files is 2203
+I then had an issue with the new data screwing up the IDE and couldn't traverse eht new file structure.... sigh, figured work around out
+
+Now I've run my processes on this data and need to manually edit the dates into file names that my script didn't catch.  To do this I'll put it in Openrefine.
+
+for the dates with only a partial date like "Feb 2018", I put the date to first day of month 01.
+Some dates remain unknown!  Some labeled minutes or agenda , were related docs and I changed to such!
+
+I love openrefien, i really feel I can trust it to not lose my data!  I don't trust spreadsheets
+
+Repo URL: https://github.com/Jrutherford1/is547_project
+
+now that I've manually added all the dates, I need to run that back through to get the proposed file names.  one quesiton is duplicates???  how do I handle these??
+
+--------
