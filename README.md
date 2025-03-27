@@ -1,5 +1,7 @@
 # is547_project
 
+DISCLAIMER: All code and content in this project represent a collaborative effort with large language models (LLMs), including but not limited to OpenAI's ChatGPT, Anthropic's Claude, and xAI's Grok. These tools have been utilized for tasks such as code generation, debugging, drafting, and ideation, with human oversight and modification applied throughout the process.  All contributions were subject to human evaluation, adaptation, and final approval.
+
 Provenance of the data used in this project:
 
 - The data used in this project is from:
@@ -60,3 +62,5 @@ now that I've manually added all the dates, I need to run that back through to g
 3-25-2025
 
 I added the functions to check folder structure "verify_folder_structure" to file_naming.py, then I added "rename_processed_files" in the same file.  I ran this code and it did exactly as expected!  The one thing I don't see is the empty folders for representation of no data.
+
+I noticed that the version history in Word for a bunch of files shows I deleted data.  That is not true.  At one point I was splitting mintutes into documents of their own.  Some committees lumped it all together.  I stopped doing this at one point and titled them agenda_minutes, or just minutes because the info could be found one way or the other.  Not sure if I need this in my class project.  It was a lot for people to do manually recreating the documents.  at some point the methods would change based on effeciency.

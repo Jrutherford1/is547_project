@@ -71,7 +71,7 @@ def generate_names_csv(source_dir=SOURCE_DIR, csv_output=CSV_OUTPUT):
     df_files.to_csv(csv_output, index=False)
     return df_files
 
-# Loads the CSV, filters out .DS_Store, and saves a cleaned version.
+# Loads the CSV, filters out .DS_Store, and saves a cleaned version.  This is here in case I need it - the .DS_Store files were already removed but sometimes return out of nowhere?  I don't know why these were such a struggle.  This is not called in the notebook sequence.
 def process_csv(csv_path=CSV_OUTPUT):
     """Processes the CSV to remove .DS_Store entries and saves a cleaned version."""
     df = pd.read_csv(csv_path)
@@ -81,7 +81,7 @@ def process_csv(csv_path=CSV_OUTPUT):
     df_cleaned.to_csv(cleaned_csv, index=False)
     return df_cleaned
 
-
+# Builds final filenames using manually updated dates and saves to a new CSV.
 def build_final_filenames(input_csv="data/manually_updated_committee_names.csv",
                           output_csv="data/final_updated_committee_names.csv"):
     """
