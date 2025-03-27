@@ -15,11 +15,11 @@ def copy_files(source_dir=SOURCE_DIR, output_dir=OUTPUT_DIR):
     for root, dirs, files in os.walk(source_dir):
         for file in files:
             source_path = os.path.join(root, file)
-            if file == ".DS_Store":  # Check for .DS_Store files
+            if file == ".DS_Store":
                 print(f"Deleting: {source_path}")
-                os.remove(source_path)  # Delete the .DS_Store file
-            else:  # Process non-.DS_Store files
-                rel_path = os.path.relpath(source_path, source_dir)  # Keep relative path
+                os.remove(source_path)
+            else:
+                rel_path = os.path.relpath(source_path, source_dir)
                 dest_path = os.path.join(output_dir, rel_path)
                 os.makedirs(os.path.dirname(dest_path), exist_ok=True)
                 shutil.copy2(source_path, dest_path)
