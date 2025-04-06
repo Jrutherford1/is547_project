@@ -13,12 +13,19 @@ def ensure_output_directory(output_dir=OUTPUT_DIR):
 # Copies files from SOURCE_DIR to OUTPUT_DIR while preserving folder structure and skipping .DS_Store.
 def copy_files(source_dir=SOURCE_DIR, output_dir=OUTPUT_DIR):
     for root, dirs, files in os.walk(source_dir):
+        # First, create all subdirectories (including empty ones).
+        for d in dirs:
+            new_dir = os.path.join(output_dir, os.path.relpath(os.path.join(root, d), source_dir))
+            os.makedirs(new_dir, exist_ok=True)
+
+        # Then copy all files (skipping .DS_Store).
         for file in files:
-            source_path = os.path.join(root, file)
             if file == ".DS_Store":
+                source_path = os.path.join(root, file)
                 print(f"Deleting: {source_path}")
                 os.remove(source_path)
             else:
+                source_path = os.path.join(root, file)
                 rel_path = os.path.relpath(source_path, source_dir)
                 dest_path = os.path.join(output_dir, rel_path)
                 os.makedirs(os.path.dirname(dest_path), exist_ok=True)

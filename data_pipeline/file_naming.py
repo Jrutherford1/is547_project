@@ -121,7 +121,7 @@ def build_final_filenames(input_csv="data/manually_updated_committee_names.csv",
     return df
 
 
-def verify_folder_structure(processed_dir="data/Processed_Committees",
+def verify_folder_file_structure(processed_dir="data/Processed_Committees",
                             final_csv="data/final_updated_committee_names.csv"):
     """
     Verifies that the folder structure in final_updated_committee_names.csv matches
@@ -181,61 +181,90 @@ def verify_folder_structure(processed_dir="data/Processed_Committees",
 
     return all_match
 
-
-
-def rename_processed_files(processed_dir="data/Processed_Committees",
-                           final_csv="data/final_updated_committee_names.csv"):
+def rename_processed_files(
+    processed_dir="data/Processed_Committees",
+    final_csv="data/final_updated_committee_names.csv"
+):
     """
-    Renames files in Processed_Committees using final filenames from the CSV.
-    Preserves the original folder structure and only modifies Processed_Committees.
+    Renames files in Processed_Committees by replacing just the filename with 'Final File Name'
+    EXCEPT for those in 'Related Documents' folder, which are left as-is.
     """
 
     # Load the final updated CSV
-    df = pd.read_csv(final_csv)
+    df = pd.read_csv(final_csv, dtype=str).fillna("")
 
-    # Ensure required columns exist
-    required_columns = ["Original File Name", "Final File Name"]
+    # Validate required columns
+    required_columns = ["Committee", "Document Type", "Original File Name", "Final File Name"]
     for col in required_columns:
         if col not in df.columns:
             raise ValueError(f"Required column '{col}' not found in {final_csv}")
 
-    # Create a mapping of original paths to final filenames
-    rename_map = {}
-    for _, row in df.iterrows():
-        # Reconstruct the original path in Processed_Committees
-        original_rel_path = os.path.join(
-            row["Committee"],
-            row["Document Type"],
-            row["Original File Name"]
-        )
-        original_full_path = os.path.join(processed_dir, original_rel_path)
-
-        # Get the final filename (just the filename, not full path)
-        final_filename = row["Final File Name"]
-
-        # Construct the final full path (keeping same directory structure)
-        final_full_path = os.path.join(
-            processed_dir,
-            row["Committee"],
-            row["Document Type"],
-            final_filename
-        )
-
-        rename_map[original_full_path] = final_full_path
-
-    # Perform the renaming
     renamed_count = 0
-    for original_path, new_path in rename_map.items():
-        if os.path.exists(original_path):
-            # Ensure the destination directory exists
-            os.makedirs(os.path.dirname(new_path), exist_ok=True)
-            os.rename(original_path, new_path)
-            renamed_count += 1
-            print(f"Renamed: {original_path} -> {new_path}")
-        else:
-            print(f"Warning: File not found for renaming: {original_path}")
+    missing_count = 0
 
-    print(f"Total files renamed: {renamed_count}")
+    # If you'd like collision handling, set this to True. Otherwise, files with
+    # the same new_path will be overwritten.
+    HANDLE_COLLISIONS = True
+
+    for _, row in df.iterrows():
+        committee = row["Committee"].strip()
+        doc_type = row["Document Type"].strip()
+        old_filename = row["Original File Name"].strip()
+        new_filename = row["Final File Name"].strip()
+
+        old_path = os.path.join(processed_dir, committee, doc_type, old_filename)
+        new_path = os.path.join(processed_dir, committee, doc_type, new_filename)
+
+        # Skip renaming if Document Type = "Related Documents"
+        if doc_type.lower() == "related documents":
+            print(f"Skipping rename (Related Documents): {old_path}")
+            continue
+
+        # Check if the old file exists
+        if not os.path.exists(old_path):
+            print(f"Warning: File not found for renaming: {old_path}")
+            missing_count += 1
+            continue
+
+        # Handle collisions if desired
+        if HANDLE_COLLISIONS and os.path.exists(new_path):
+            base, ext = os.path.splitext(new_path)
+            i = 1
+            alt_path = f"{base}_{i}{ext}"
+            while os.path.exists(alt_path):
+                i += 1
+                alt_path = f"{base}_{i}{ext}"
+            new_path = alt_path
+            print(f"Collision: {old_path} -> {new_path}")
+
+        # Rename the file (change only the filename, same folder)
+        os.rename(old_path, new_path)
+        renamed_count += 1
+        print(f"Renamed: {old_path} -> {new_path}")
+
+    # Summary
+    total_rows = len(df)
+    print("\nSummary:")
+    print(f"  Total rows in CSV:  {total_rows}")
+    print(f"  Renamed files:      {renamed_count}")
+    print(f"  Missing files:      {missing_count}")
+
     return renamed_count
 
 
+
+def find_exact_name_matches(csv_path="data/final_updated_committee_names.csv"):
+    """
+    Finds and prints all rows where 'Original File Name' exactly matches 'Final File Name'.
+    Returns a DataFrame of matching rows.
+    """
+    df = pd.read_csv(csv_path, dtype=str).fillna("")
+
+    # Strip whitespace and compare exact matches
+    matches = df[df["Original File Name"].str.strip() == df["Final File Name"].str.strip()]
+
+    print(f"Total exact matches: {len(matches)}")
+    if not matches.empty:
+        print(matches[["Committee", "Document Type", "Original File Name"]])
+
+    return matches
