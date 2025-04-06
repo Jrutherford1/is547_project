@@ -253,18 +253,3 @@ def rename_processed_files(
 
 
 
-def find_exact_name_matches(csv_path="data/final_updated_committee_names.csv"):
-    """
-    Finds and prints all rows where 'Original File Name' exactly matches 'Final File Name'.
-    Returns a DataFrame of matching rows.
-    """
-    df = pd.read_csv(csv_path, dtype=str).fillna("")
-
-    # Strip whitespace and compare exact matches
-    matches = df[df["Original File Name"].str.strip() == df["Final File Name"].str.strip()]
-
-    print(f"Total exact matches: {len(matches)}")
-    if not matches.empty:
-        print(matches[["Committee", "Document Type", "Original File Name"]])
-
-    return matches
