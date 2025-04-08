@@ -6,7 +6,7 @@ def count_files(directory):
     file_count = 0
     for root, dirs, files in os.walk(directory):
         for file in files:
-            if file != ".DS_Store":  # Exclude .DS_Store files
+            if file != ".DS_Store":
                 file_count += 1
     return file_count
 

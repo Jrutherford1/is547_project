@@ -4,12 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="808c41b2-d989-40ec-acd2-cc56c8e47cf0" name="Changes" comment="ran the code and produced the final names, noticed that empty committees and folders deleted.  Does that matter?  I was using empties as evidence nothing was there to begin with, but is this a &quot;tree fell in forest&quot; situation??">
+    <list default="true" id="808c41b2-d989-40ec-acd2-cc56c8e47cf0" name="Changes" comment="I found the error, it was 311 files, Related Docs don't get renamed!  Eliminated one function">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data_pipeline/data_cleaning.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_pipeline/data_cleaning.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_pipeline/data_explore.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_pipeline/data_explore.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data_pipeline/file_naming.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_pipeline/file_naming.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/is547_project.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/is547_project.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +82,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -160,7 +162,16 @@
       <workItem from="1742913650480" duration="21000" />
       <workItem from="1742914040288" duration="3936000" />
       <workItem from="1742932275556" duration="4621000" />
-      <workItem from="1743003168851" duration="7814000" />
+      <workItem from="1743003168851" duration="9004000" />
+      <workItem from="1743100231165" duration="2482000" />
+      <workItem from="1743163943572" duration="1287000" />
+      <workItem from="1743950292605" duration="24000" />
+      <workItem from="1743950327065" duration="1836000" />
+      <workItem from="1743963933926" duration="7651000" />
+      <workItem from="1743971599518" duration="3492000" />
+      <workItem from="1744026000154" duration="143000" />
+      <workItem from="1744029615028" duration="2394000" />
+      <workItem from="1744042342072" duration="5138000" />
     </task>
     <task id="LOCAL-00001" summary="starting basic processing and setup">
       <option name="closed" value="true" />
@@ -234,7 +245,31 @@
       <option name="project" value="LOCAL" />
       <updated>1742934907540</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="documentation, found errors">
+      <option name="closed" value="true" />
+      <created>1743081200746</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1743081200746</updated>
+    </task>
+    <task id="LOCAL-00011" summary="attempted to find and resolve errors, not sure why 381 files are not renamed.  There is a file for each original.  I'm thinking these are the ones I manually updated dates for???">
+      <option name="closed" value="true" />
+      <created>1743975314184</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1743975314184</updated>
+    </task>
+    <task id="LOCAL-00012" summary="I found the error, it was 311 files, Related Docs don't get renamed!  Eliminated one function">
+      <option name="closed" value="true" />
+      <created>1743975482674</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1743975482674</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -250,7 +285,10 @@
     <MESSAGE value="final names output generated from new function &quot;build_final_filenames&quot;.  It worked beautifully.  Now to add the function to write the names to all the files in the folders." />
     <MESSAGE value="added final_updated_committee_names.csv to git" />
     <MESSAGE value="ran the code and produced the final names, noticed that empty committees and folders deleted.  Does that matter?  I was using empties as evidence nothing was there to begin with, but is this a &quot;tree fell in forest&quot; situation??" />
-    <option name="LAST_COMMIT_MESSAGE" value="ran the code and produced the final names, noticed that empty committees and folders deleted.  Does that matter?  I was using empties as evidence nothing was there to begin with, but is this a &quot;tree fell in forest&quot; situation??" />
+    <MESSAGE value="documentation, found errors" />
+    <MESSAGE value="attempted to find and resolve errors, not sure why 381 files are not renamed.  There is a file for each original.  I'm thinking these are the ones I manually updated dates for???" />
+    <MESSAGE value="I found the error, it was 311 files, Related Docs don't get renamed!  Eliminated one function" />
+    <option name="LAST_COMMIT_MESSAGE" value="I found the error, it was 311 files, Related Docs don't get renamed!  Eliminated one function" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/IS547_Project$data_explore.coverage" NAME="data_explore Coverage Results" MODIFIED="1741725976148" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data_pipeline" />
