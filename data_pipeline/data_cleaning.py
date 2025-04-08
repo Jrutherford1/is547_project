@@ -18,7 +18,7 @@ def copy_files(source_dir=SOURCE_DIR, output_dir=OUTPUT_DIR):
             new_dir = os.path.join(output_dir, os.path.relpath(os.path.join(root, d), source_dir))
             os.makedirs(new_dir, exist_ok=True)
 
-        # Then copy all files (skipping .DS_Store).
+        # Then copy all files, delete DS_Store files.
         for file in files:
             if file == ".DS_Store":
                 source_path = os.path.join(root, file)
