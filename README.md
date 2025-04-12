@@ -7,7 +7,7 @@ Data to be used for the project is available at: https://uofi.app.box.com/folder
 Git Repository where all code is stored: https://github.com/Jrutherford1/is547_project
 
 # Project Overview
-This project contains a workflow and documentation for managing around 2,000 digital documents originally from a WordPress site migration. The main goal is to enhance access and maintain institutional memory by applying consistent naming conventions, improving metadata, adding fixity, and tracking provenance. 
+This project contains a workflow and documentation for managing around 2,200 digital documents originally from a WordPress site migration. The main goal is to enhance access and maintain institutional memory by applying consistent naming conventions, improving metadata, adding fixity, and tracking provenance. 
 
 # Project Structure
 - Jupyter Notebook: Contains the code used for data processing and analysis.
@@ -18,17 +18,19 @@ This project contains a workflow and documentation for managing around 2,000 dig
 # Workflow
 1. **Data Ingestion**: 
    - Collect all digital documents from the WordPress site migration.
-   - Store them in the `/data` directory.
+   - Store them in the `/data/Committees` directory.
 
 2. **Data Processing**:
-   - Use the Jupyter Notebook to read and process the documents.
-   - Apply consistent naming conventions to the files manually in the generated "names.csv" and create new "manually_updated_committee_names.csv".
-   - Enhance metadata for each document.
-   - Add fixity checks to ensure data integrity.
-   - Track provenance of each document.
+   - Use the Jupyter Notebook to read and use functions in "data_explore.py" to inspect the data.
+   - Ensure directory, copy and list files with data_clean.py.
+   - Apply consistent naming conventions to the files by processing with functions from "file_naming.py".  This generates "names.csv".  Then manually inspect the file names using OpenRefine and create new "manually_updated_committee_names.csv" where manual intervention is needed.
+   - Finish processing final file names with function from "file_naming.py" and produce "final_updated_committee_names.csv".
+   - Use "rename_processed_files function" to rename the files in the `/data/Processed_Committees` directory.
+   - Enhance metadata and add fixity checks for each document with "enhance_metadata.py" .
+
 
 3. **Data Output**:
-   - Store processed documents in the `/data` directory.
+   - Store processed documents in the `/data/Processed_Commitees` directory.
    - Save metadata in CSV files for easy access and analysis.
 
 # Data Governance
