@@ -32,6 +32,7 @@ This project contains a workflow and documentation for managing around 2,200 dig
 3. **Data Output**:
    - Store processed documents in the `/data/Processed_Commitees` directory.
    - Save metadata in separate json files for easy access and analysis.
+   - Apply fixity checks to ensure data integrity.
 
 # Data Governance
 - Committee data are publicly accessible per library policy, generally, however the full set of documentation is behind a login wall here: https://uofi.app.box.com/folder/212652485445?s=pww3vn4y8plg5jab2fwxw9aulw7csuy2
