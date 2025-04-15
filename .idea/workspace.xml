@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="808c41b2-d989-40ec-acd2-cc56c8e47cf0" name="Changes" comment="update some documentation, updated README.md">
-      <change afterPath="$PROJECT_DIR$/data_pipeline/enhance_metadata.py" afterDir="false" />
+    <list default="true" id="808c41b2-d989-40ec-acd2-cc56c8e47cf0" name="Changes" comment="updated README.md, created functions to add separate metadata Json files that include fixity checks.  All this is first trial stuff, needs reviews of all code and any documenation upkeep.  Also add a project-wide metadata file next.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_pipeline/data_cleaning.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_pipeline/data_cleaning.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_pipeline/enhance_metadata.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_pipeline/enhance_metadata.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,7 +169,9 @@
       <workItem from="1744029615028" duration="2394000" />
       <workItem from="1744042342072" duration="9995000" />
       <workItem from="1744205624741" duration="4965000" />
-      <workItem from="1744461249439" duration="4431000" />
+      <workItem from="1744461249439" duration="12634000" />
+      <workItem from="1744656687005" duration="112000" />
+      <workItem from="1744727454192" duration="2456000" />
     </task>
     <task id="LOCAL-00001" summary="starting basic processing and setup">
       <option name="closed" value="true" />
@@ -283,7 +285,23 @@
       <option name="project" value="LOCAL" />
       <updated>1744465984309</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="updated README.md">
+      <option name="closed" value="true" />
+      <created>1744471127043</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1744471127043</updated>
+    </task>
+    <task id="LOCAL-00016" summary="updated README.md, created functions to add separate metadata Json files that include fixity checks.  All this is first trial stuff, needs reviews of all code and any documenation upkeep.  Also add a project-wide metadata file next.">
+      <option name="closed" value="true" />
+      <created>1744476731733</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1744476731733</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -303,7 +321,9 @@
     <MESSAGE value="attempted to find and resolve errors, not sure why 381 files are not renamed.  There is a file for each original.  I'm thinking these are the ones I manually updated dates for???" />
     <MESSAGE value="I found the error, it was 311 files, Related Docs don't get renamed!  Eliminated one function" />
     <MESSAGE value="update some documentation, updated README.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="update some documentation, updated README.md" />
+    <MESSAGE value="updated README.md" />
+    <MESSAGE value="updated README.md, created functions to add separate metadata Json files that include fixity checks.  All this is first trial stuff, needs reviews of all code and any documenation upkeep.  Also add a project-wide metadata file next." />
+    <option name="LAST_COMMIT_MESSAGE" value="updated README.md, created functions to add separate metadata Json files that include fixity checks.  All this is first trial stuff, needs reviews of all code and any documenation upkeep.  Also add a project-wide metadata file next." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/IS547_Project$data_explore.coverage" NAME="data_explore Coverage Results" MODIFIED="1741725976148" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data_pipeline" />
