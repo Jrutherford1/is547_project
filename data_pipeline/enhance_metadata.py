@@ -5,6 +5,8 @@ import hashlib
 import pandas as pd
 from collections import defaultdict
 
+
+# Calculate hashes.  NGL, I don't know exactly how this part works.
 def calculate_sha256(file_path):
     h = hashlib.sha256()
     with open(file_path, 'rb') as f:
@@ -12,12 +14,13 @@ def calculate_sha256(file_path):
             h.update(chunk)
     return h.hexdigest()
 
+# Generate metadata for each file in the CSV, skipping if the JSON already exists
 def run(
     csv_path="data/final_updated_committee_names.csv",
     base_dir="data/Processed_Committees",
     skip_existing=True
 ):
-    # Load and normalize the CSV
+    # Load and normalize the CSV, apparently GPT thought it should have more concise column names
     df = pd.read_csv(csv_path)
     df.rename(columns={
         'Final File Name': 'final_filename',
@@ -28,12 +31,13 @@ def run(
     }, inplace=True)
     df['final_filename'] = df['final_filename'].str.strip()
 
-    # Stats tracking
+    # Stats tracking for human error checking
     file_type_counts = defaultdict(int)
     skipped = 0
     updated = 0
     created = 0
 
+    #concatenate the committee and type columns to create a relative path
     for _, row in df.iterrows():
         committee = row['committee'].strip()
         doc_type = row['type'].strip()
@@ -45,15 +49,21 @@ def run(
         if not os.path.isfile(full_path):
             print(f"Missing: {rel_path}")
             continue
-
+        #Build
         file_type = os.path.splitext(filename)[-1].lower()
+        # Count file types
         file_type_counts[file_type] += 1
 
         checksum = calculate_sha256(full_path)
         base_name = os.path.splitext(filename)[0]
         folder_path = os.path.dirname(full_path)
+        # Create the JSON path/name
         json_path = os.path.join(folder_path, base_name + ".json")
 
+        # The code reads the existing JSON file and retrieves the stored checksum (existing.get("checksum", {}).get("value")).
+        # It compares this stored checksum with the newly calculated checksum (checksum).
+        # If they match, the file is skipped (skipped += 1).
+        # If they differ, the JSON metadata is updated (updated += 1), and the new checksum is saved and "checksum mismatch" is printed.
         if skip_existing and os.path.exists(json_path):
             with open(json_path, 'r') as f:
                 try:
@@ -96,6 +106,8 @@ def run(
     for ext, count in sorted(file_type_counts.items()):
         print(f"  {ext.upper()}: {count}")
 
+
+# Generate metadata for related documents directory because I had been skipping operations on it due to the very unique file names.  Realizing this ought to also have fixity applied this fucntion was needed.
 def run_related_documents(base_dir="data/Processed_Committees", skip_existing=True):
     print("\n--- Processing Related Documents ---")
     file_type_counts = defaultdict(int)
