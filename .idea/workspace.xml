@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="808c41b2-d989-40ec-acd2-cc56c8e47cf0" name="Changes" comment="updated documentation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_pipeline/enhance_metadata.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_pipeline/enhance_metadata.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/is547_project.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/is547_project.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -173,7 +174,7 @@
       <workItem from="1744727454192" duration="4732000" />
       <workItem from="1744916227577" duration="4367000" />
       <workItem from="1745062488572" duration="80000" />
-      <workItem from="1745062577986" duration="1352000" />
+      <workItem from="1745062577986" duration="3177000" />
     </task>
     <task id="LOCAL-00001" summary="starting basic processing and setup">
       <option name="closed" value="true" />
@@ -319,7 +320,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744736183580</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="updated documentation">
+      <option name="closed" value="true" />
+      <created>1745100829556</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1745100829556</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
