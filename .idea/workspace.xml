@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="808c41b2-d989-40ec-acd2-cc56c8e47cf0" name="Changes" comment="updated documentation">
+    <list default="true" id="808c41b2-d989-40ec-acd2-cc56c8e47cf0" name="Changes" comment="updated to json-ld, fixed function naming and jupyter execution to my perferred way">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_pipeline/enhance_metadata.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_pipeline/enhance_metadata.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_pipeline/project_metadata.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_pipeline/project_metadata.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/is547_project.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/is547_project.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_metadata.jsonld" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +20,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="Jupyter Notebook" />
       </list>
     </option>
   </component>
@@ -174,7 +177,9 @@
       <workItem from="1744727454192" duration="4732000" />
       <workItem from="1744916227577" duration="4367000" />
       <workItem from="1745062488572" duration="80000" />
-      <workItem from="1745062577986" duration="3177000" />
+      <workItem from="1745062577986" duration="5034000" />
+      <workItem from="1745103909360" duration="805000" />
+      <workItem from="1745104726037" duration="8125000" />
     </task>
     <task id="LOCAL-00001" summary="starting basic processing and setup">
       <option name="closed" value="true" />
@@ -328,7 +333,23 @@
       <option name="project" value="LOCAL" />
       <updated>1745100829556</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="updated to json-ld, fixed function naming and jupyter execution to my perferred way">
+      <option name="closed" value="true" />
+      <created>1745102413382</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1745102413382</updated>
+    </task>
+    <task id="LOCAL-00021" summary="updated to json-ld, fixed function naming and jupyter execution to my perferred way">
+      <option name="closed" value="true" />
+      <created>1745105755003</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1745105755003</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -351,7 +372,8 @@
     <MESSAGE value="updated README.md" />
     <MESSAGE value="updated README.md, created functions to add separate metadata Json files that include fixity checks.  All this is first trial stuff, needs reviews of all code and any documenation upkeep.  Also add a project-wide metadata file next." />
     <MESSAGE value="updated documentation" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated documentation" />
+    <MESSAGE value="updated to json-ld, fixed function naming and jupyter execution to my perferred way" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated to json-ld, fixed function naming and jupyter execution to my perferred way" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/IS547_Project$data_explore.coverage" NAME="data_explore Coverage Results" MODIFIED="1741725976148" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data_pipeline" />
