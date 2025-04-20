@@ -1,6 +1,8 @@
 import json
 from datetime import datetime
 
+#Function to write project-level metadata for the dataset
+
 def write_project_metadata(
     output_path="project_metadata.jsonld",
     dataset_name="Library Committee Documents Archive",
