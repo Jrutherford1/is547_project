@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="808c41b2-d989-40ec-acd2-cc56c8e47cf0" name="Changes" comment="updated to json-ld, fixed function naming and jupyter execution to my perferred way">
+    <list default="true" id="808c41b2-d989-40ec-acd2-cc56c8e47cf0" name="Changes" comment="fogotten file">
+      <change afterPath="$PROJECT_DIR$/data_pipeline/nlp_term_extraction.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_pipeline/project_metadata.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_pipeline/project_metadata.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/is547_project.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/is547_project.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project_metadata.jsonld" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +18,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="Jupyter Notebook" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -179,7 +178,15 @@
       <workItem from="1745062488572" duration="80000" />
       <workItem from="1745062577986" duration="5034000" />
       <workItem from="1745103909360" duration="805000" />
-      <workItem from="1745104726037" duration="8125000" />
+      <workItem from="1745104726037" duration="10848000" />
+      <workItem from="1745232015409" duration="627000" />
+      <workItem from="1745753284366" duration="32000" />
+      <workItem from="1745850497287" duration="26000" />
+      <workItem from="1745850535829" duration="57000" />
+      <workItem from="1745850722762" duration="141000" />
+      <workItem from="1745864168101" duration="607000" />
+      <workItem from="1746047115231" duration="1259000" />
+      <workItem from="1746225852713" duration="6384000" />
     </task>
     <task id="LOCAL-00001" summary="starting basic processing and setup">
       <option name="closed" value="true" />
@@ -349,7 +356,23 @@
       <option name="project" value="LOCAL" />
       <updated>1745105755003</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="updated documentation">
+      <option name="closed" value="true" />
+      <created>1745155112824</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1745155112824</updated>
+    </task>
+    <task id="LOCAL-00023" summary="fogotten file">
+      <option name="closed" value="true" />
+      <created>1745155130965</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1745155130965</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -371,9 +394,10 @@
     <MESSAGE value="update some documentation, updated README.md" />
     <MESSAGE value="updated README.md" />
     <MESSAGE value="updated README.md, created functions to add separate metadata Json files that include fixity checks.  All this is first trial stuff, needs reviews of all code and any documenation upkeep.  Also add a project-wide metadata file next." />
-    <MESSAGE value="updated documentation" />
     <MESSAGE value="updated to json-ld, fixed function naming and jupyter execution to my perferred way" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated to json-ld, fixed function naming and jupyter execution to my perferred way" />
+    <MESSAGE value="updated documentation" />
+    <MESSAGE value="fogotten file" />
+    <option name="LAST_COMMIT_MESSAGE" value="fogotten file" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/IS547_Project$data_explore.coverage" NAME="data_explore Coverage Results" MODIFIED="1741725976148" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data_pipeline" />
