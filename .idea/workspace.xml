@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="808c41b2-d989-40ec-acd2-cc56c8e47cf0" name="Changes" comment="updated to json-ld, fixed function naming and jupyter execution to my perferred way">
+    <list default="true" id="808c41b2-d989-40ec-acd2-cc56c8e47cf0" name="Changes" comment="another run">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_pipeline/project_metadata.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_pipeline/project_metadata.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/is547_project.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/is547_project.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project_metadata.jsonld" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +69,7 @@
     &quot;Python.data_explore.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;branch__one&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/johnrr3/PycharmProjects/IS547_Project/data&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -126,8 +122,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-f27c65a3e318-JavaScript-PY-251.23774.444" />
-        <option value="bundled-python-sdk-890ed5b35930-d9c5bdb153f4-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-251.23774.444" />
+        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-PY-251.25410.159" />
+        <option value="bundled-python-sdk-e0ed3721d81e-36ea0e71a18c-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-251.25410.159" />
       </set>
     </attachedChunks>
   </component>
@@ -180,6 +176,7 @@
       <workItem from="1745062577986" duration="5034000" />
       <workItem from="1745103909360" duration="805000" />
       <workItem from="1745104726037" duration="8125000" />
+      <workItem from="1748015620167" duration="8000" />
     </task>
     <task id="LOCAL-00001" summary="starting basic processing and setup">
       <option name="closed" value="true" />
