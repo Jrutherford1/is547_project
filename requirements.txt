@@ -135,3 +135,8 @@ webencodings==0.5.1
 websocket-client==1.8.0
 wrapt==1.17.2
 XlsxWriter==3.2.3
+
+networkx~=3.4.2
+matplotlib~=3.10.3
+pyvis~=0.3.2
+rdflib~=7.1.4
