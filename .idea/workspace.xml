@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="808c41b2-d989-40ec-acd2-cc56c8e47cf0" name="Changes" comment="another run">
-      <change afterPath="$PROJECT_DIR$/data_pipeline/final_file_naming.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_pipeline/enhance_metadata.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_pipeline/enhance_metadata.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_pipeline/file_naming.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_pipeline/file_naming.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/is547_project.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/is547_project.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project_metadata.jsonld" beforeDir="false" afterPath="$PROJECT_DIR$/project_metadata.jsonld" afterDir="false" />
-    </list>
+    <list default="true" id="808c41b2-d989-40ec-acd2-cc56c8e47cf0" name="Changes" comment="naming issues appear to be solved!" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -205,7 +197,7 @@
       <workItem from="1748357817059" duration="14000" />
       <workItem from="1748447655884" duration="8901000" />
       <workItem from="1748618846025" duration="275000" />
-      <workItem from="1748619139807" duration="2360000" />
+      <workItem from="1748619139807" duration="3077000" />
     </task>
     <task id="LOCAL-00001" summary="starting basic processing and setup">
       <option name="closed" value="true" />
@@ -423,7 +415,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747234346671</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="naming issues appear to be solved!">
+      <option name="closed" value="true" />
+      <created>1748622166075</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1748622166075</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -451,7 +451,8 @@
     <MESSAGE value="updated requirements.txt" />
     <MESSAGE value="added nlp script" />
     <MESSAGE value="update stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="update stuff" />
+    <MESSAGE value="naming issues appear to be solved!" />
+    <option name="LAST_COMMIT_MESSAGE" value="naming issues appear to be solved!" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/IS547_Project$data_explore.coverage" NAME="data_explore Coverage Results" MODIFIED="1741725976148" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data_pipeline" />
