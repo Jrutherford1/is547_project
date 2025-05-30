@@ -4,8 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="808c41b2-d989-40ec-acd2-cc56c8e47cf0" name="Changes" comment="update stuff">
+    <list default="true" id="808c41b2-d989-40ec-acd2-cc56c8e47cf0" name="Changes" comment="another run">
+      <change afterPath="$PROJECT_DIR$/data_pipeline/final_file_naming.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_pipeline/enhance_metadata.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_pipeline/enhance_metadata.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_pipeline/file_naming.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_pipeline/file_naming.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/is547_project.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/is547_project.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_metadata.jsonld" beforeDir="false" afterPath="$PROJECT_DIR$/project_metadata.jsonld" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,8 +133,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-PY-251.25410.122" />
-        <option value="bundled-python-sdk-880ecab49056-36ea0e71a18c-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-251.25410.122" />
+        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-PY-251.25410.159" />
+        <option value="bundled-python-sdk-e0ed3721d81e-36ea0e71a18c-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-251.25410.159" />
       </set>
     </attachedChunks>
   </component>
@@ -196,6 +202,10 @@
       <workItem from="1747164811750" duration="1374000" />
       <workItem from="1747234128987" duration="132000" />
       <workItem from="1747234321513" duration="638000" />
+      <workItem from="1748357817059" duration="14000" />
+      <workItem from="1748447655884" duration="8901000" />
+      <workItem from="1748618846025" duration="275000" />
+      <workItem from="1748619139807" duration="2360000" />
     </task>
     <task id="LOCAL-00001" summary="starting basic processing and setup">
       <option name="closed" value="true" />

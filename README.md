@@ -1,5 +1,7 @@
 # is547_project
 
+
+
 DISCLAIMER: All code and content in this project represent a collaborative effort with large language models (LLMs), including but not limited to OpenAI's ChatGPT, Anthropic's Claude, and xAI's Grok. These tools have been utilized for tasks such as code generation, debugging, drafting, and ideation, with human oversight and modification applied throughout the process.  All contributions were subject to human evaluation, adaptation, and final approval.
 
 Data to be used for the project is available at: https://uofi.app.box.com/folder/212652485445?s=pww3vn4y8plg5jab2fwxw9aulw7csuy2
@@ -39,3 +41,4 @@ This project contains a workflow and documentation for managing around 2,200 dig
 # Data Governance
 - Committee data are publicly accessible per library policy, generally, however the full set of documentation is behind a login wall here: https://uofi.app.box.com/folder/212652485445?s=pww3vn4y8plg5jab2fwxw9aulw7csuy2
 - All data handling, processing, and analysis must comply with institutional data governance policies as outlined in the Library's policy. Note that all committees receive their charge from the Executive Committee, and therefore, the policies for all other committees fall under this umbrella policy: https://www.library.illinois.edu/staff/policies/confidentiality-of-reports-submitted-to-the-library-executive-committee/
+

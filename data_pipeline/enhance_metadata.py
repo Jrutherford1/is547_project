@@ -1,4 +1,3 @@
-# enhance_metadata.py
 import os
 import json
 import hashlib
@@ -15,16 +14,15 @@ def calculate_sha256(file_path):
     return h.hexdigest()
 
 
-# Generate metadata for each file in the CSV, skipping if the JSON already exists
 def enhance_metadata(
-    csv_path="/mnt/data/manually_updated_committee_names.csv",
+    csv_path="data/final_updated_committee_names.csv",  # Changed to use final CSV
     base_dir="data/Processed_Committees",
-    skip_existing=True
+    skip_existing=False  # Changed to False to always regenerate
 ):
-    # Load and normalize the CSV, apparently GPT thought it should have more concise column names
+    # Load and normalize the CSV
     df = pd.read_csv(csv_path)
     df.rename(columns={
-        'Proposed File Name': 'final_filename',
+        'Final File Name': 'final_filename',  # Changed from 'Proposed File Name'
         'Committee': 'committee',
         'Document Type': 'type',
         'Extracted Date': 'date',
@@ -62,22 +60,9 @@ def enhance_metadata(
         # Create the JSON path/name
         json_path = os.path.join(folder_path, base_name + ".json")
 
-        # The code reads the existing JSON file and retrieves the stored checksum (existing.get("checksum", {}).get("value")).
-        # It compares this stored checksum with the newly calculated checksum (checksum).
-        # If they match, the file is skipped (skipped += 1).
-        # If they differ, the JSON metadata is updated (updated += 1), and the new checksum is saved and "checksum mismatch" is printed.
-        if skip_existing and os.path.exists(json_path):
-            with open(json_path, 'r') as f:
-                try:
-                    existing = json.load(f)
-                    if existing.get("checksum", {}).get("value") == checksum:
-                        skipped += 1
-                        continue  # Skip identical
-                    else:
-                        print(f"Checksum mismatch: {filename}, updating JSON-LD.")
-                        updated += 1
-                except Exception as e:
-                    print(f"Corrupt or unreadable JSON for {filename}, regenerating.")
+        # Track if we're creating a new file or updating an existing one
+        if os.path.exists(json_path):
+            updated += 1
         else:
             created += 1
 
@@ -122,7 +107,7 @@ def enhance_metadata(
 
 # Generate metadata for related documents directory because I had been skipping operations on it due to the very unique file names.
 # Realizing this ought to also have fixity applied, this function was needed.
-def run_related_documents(base_dir="data/Processed_Committees", skip_existing=True):
+def run_related_documents(base_dir="data/Processed_Committees", skip_existing=False):
     print("\n--- Processing Related Documents ---")
     file_type_counts = defaultdict(int)
     created = updated = skipped = 0
@@ -149,22 +134,13 @@ def run_related_documents(base_dir="data/Processed_Committees", skip_existing=Tr
             base_name = os.path.splitext(filename)[0]
             json_path = os.path.join(related_path, base_name + ".json")
 
-            if skip_existing and os.path.exists(json_path):
-                with open(json_path, 'r') as f:
-                    try:
-                        existing = json.load(f)
-                        if existing.get("checksum", {}).get("value") == checksum:
-                            skipped += 1
-                            continue
-                        else:
-                            print(f"Checksum mismatch: {filename}, updating JSON-LD.")
-                            updated += 1
-                    except Exception as e:
-                        print(f"Unreadable JSON for {filename}, regenerating.")
+            # Track if we're creating a new file or updating an existing one
+            if os.path.exists(json_path):
+                updated += 1
             else:
                 created += 1
 
-            # Again, using JSON-LD format for consistency
+            # Always generate new metadata and write to JSON
             metadata = {
                 "@context": {
                     "@vocab": "http://schema.org/",
