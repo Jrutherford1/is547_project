@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="808c41b2-d989-40ec-acd2-cc56c8e47cf0" name="Changes" comment="naming issues appear to be solved!" />
+    <list default="true" id="808c41b2-d989-40ec-acd2-cc56c8e47cf0" name="Changes" comment="cleaned up metadata enchancmenet functions, reduced duplication">
+      <change afterPath="$PROJECT_DIR$/data_pipeline/add_nlp_terms_to_metadata.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_pipeline/nlp_term_extraction.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_pipeline/nlp_term_extraction_preview.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/is547_project.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/is547_project.ipynb" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -197,7 +202,8 @@
       <workItem from="1748357817059" duration="14000" />
       <workItem from="1748447655884" duration="8901000" />
       <workItem from="1748618846025" duration="275000" />
-      <workItem from="1748619139807" duration="3077000" />
+      <workItem from="1748619139807" duration="7280000" />
+      <workItem from="1748629741775" duration="1187000" />
     </task>
     <task id="LOCAL-00001" summary="starting basic processing and setup">
       <option name="closed" value="true" />
@@ -423,7 +429,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748622166075</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="cleaned up metadata enchancmenet functions, reduced duplication">
+      <option name="closed" value="true" />
+      <created>1748623654782</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1748623654782</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -452,7 +466,8 @@
     <MESSAGE value="added nlp script" />
     <MESSAGE value="update stuff" />
     <MESSAGE value="naming issues appear to be solved!" />
-    <option name="LAST_COMMIT_MESSAGE" value="naming issues appear to be solved!" />
+    <MESSAGE value="cleaned up metadata enchancmenet functions, reduced duplication" />
+    <option name="LAST_COMMIT_MESSAGE" value="cleaned up metadata enchancmenet functions, reduced duplication" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/IS547_Project$data_explore.coverage" NAME="data_explore Coverage Results" MODIFIED="1741725976148" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data_pipeline" />
