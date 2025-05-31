@@ -2,31 +2,44 @@ import os
 import json
 from collections import defaultdict, Counter
 from pathlib import Path
+import spacy
+import hashlib
+
+# Load the spaCy model ONCE at module level - this is key for performance!
+nlp = spacy.load("en_core_web_sm", disable=["parser", "tagger"])  # Only keep what you need
 
 # Import the NLP functions from the existing module
-from data_pipeline.nlp_term_extraction_preview import extract_text, extract_entities_from_file
+from data_pipeline.nlp_term_extraction_preview import extract_text
 
-def extract_structured_entities_from_file(file_path):
+def extract_entities_batch(file_paths):
     """
-    Extracts entities from a file and organizes them by type.
+    Extracts entities from multiple files using batch processing.
     
     Args:
-        file_path: Path to the document file
+        file_paths: List of file paths to process
         
     Returns:
-        Dictionary with entity types as keys and lists of entities as values
+        List of dictionaries with entity types as keys and lists of entities as values
     """
-    try:
-        # Use the existing function to get all entities
-        flat_entities = extract_entities_from_file(file_path)
-        
-        # Create a structured entity dictionary using spaCy's nlp on the text again
-        # This is not ideal, but we need the entity types
-        from spacy import load
-        nlp = load("en_core_web_sm")
-        text = extract_text(file_path)
-        doc = nlp(text)
-        
+    # Extract texts from all files first
+    texts = []
+    valid_paths = []
+    
+    for file_path in file_paths:
+        try:
+            text = extract_text(file_path)
+            if text and len(text.strip()) > 0:  # Only process non-empty texts
+                texts.append(text)
+                valid_paths.append(file_path)
+        except Exception as e:
+            print(f"Error extracting text from {file_path}: {e}")
+            # Add empty text to maintain alignment
+            texts.append("")
+            valid_paths.append(file_path)
+    
+    # Process all texts in a single batch - this is much faster!
+    results = []
+    for doc, file_path in zip(nlp.pipe(texts, batch_size=50), valid_paths):
         entities = {
             "PERSON": [],
             "ORG": [],
@@ -46,21 +59,13 @@ def extract_structured_entities_from_file(file_path):
         for key in entities:
             entities[key] = sorted(entities[key])
             
-        return entities
-    except Exception as e:
-        print(f"Error processing {file_path}: {e}")
-        return {"PERSON": [], "ORG": [], "GPE": [], "DATE": []}
+        results.append(entities)
+    
+    return results
 
 def enhance_json_with_nlp(base_dir="data/Processed_Committees", limit=None, batch_size=100, progress_interval=10, skip_existing=True):
     """
-    Enhances existing JSON-LD metadata files with NLP-extracted entities.
-
-    Args:
-        base_dir: Base directory containing processed files
-        limit: Optional limit on number of files to process (for testing)
-        batch_size: Number of files to process before showing detailed stats
-        progress_interval: How often to show progress updates (every X files)
-        skip_existing: Skip files that already have entity data
+    Enhances existing JSON-LD metadata files with NLP-extracted entities using batch processing.
     """
     count = 0
     processed = 0
@@ -86,7 +91,7 @@ def enhance_json_with_nlp(base_dir="data/Processed_Committees", limit=None, batc
         "DATE": Counter()
     })
 
-    print(f"Enhancing JSON-LD metadata with NLP entities...")
+    print(f"Enhancing JSON-LD metadata with NLP entities using batch processing...")
 
     # First, count how many files we'll be processing
     total_json_files = 0
@@ -99,6 +104,10 @@ def enhance_json_with_nlp(base_dir="data/Processed_Committees", limit=None, batc
     else:
         print(f"Found {total_json_files} JSON files to process")
 
+    # Collect files to process in batches
+    files_to_process = []
+    json_paths = []
+    
     # Process files
     for root, _, files in os.walk(base_dir):
         json_files = [f for f in files if f.endswith(".json") and f != "project_metadata.jsonld"]
@@ -152,60 +161,7 @@ def enhance_json_with_nlp(base_dir="data/Processed_Committees", limit=None, batc
                 doc_path = os.path.join(root, base_name + ext)
                 if os.path.exists(doc_path):
                     doc_found = True
-                    processed += 1
-
-                    # Extract entities
-                    try:
-                        # Use the new structured entity extraction
-                        entities = extract_structured_entities_from_file(doc_path)
-
-                        # Update counters
-                        for entity_type, entity_list in entities.items():
-                            for entity in entity_list:
-                                all_entities[entity_type][entity] += 1
-                                committee_entities[committee][entity_type][entity] += 1
-
-                        # Load existing JSON-LD
-                        with open(json_path, 'r', encoding='utf-8') as f:
-                            metadata = json.load(f)
-
-                        # Add entities to metadata
-                        if "entities" not in metadata:
-                            metadata["entities"] = {}
-
-                        # Add each entity type
-                        for entity_type, entity_list in entities.items():
-                            if entity_list:  # Only add non-empty lists
-                                metadata["entities"][entity_type] = entity_list
-
-                        # Add keywords from entities (top organizations and people)
-                        keywords = []
-
-                        # Add up to 3 people
-                        if entities["PERSON"]:
-                            keywords.extend(entities["PERSON"][:min(3, len(entities["PERSON"]))])
-
-                        # Add up to 3 organizations
-                        if entities["ORG"]:
-                            keywords.extend(entities["ORG"][:min(3, len(entities["ORG"]))])
-
-                        # Add keywords to metadata if we found any
-                        if keywords:
-                            metadata["keywords"] = keywords
-
-                        # Save updated JSON-LD
-                        with open(json_path, 'w', encoding='utf-8') as f:
-                            json.dump(metadata, f, indent=4)
-
-                        updated += 1
-                        
-                        if count % progress_interval == 0:
-                            print(f"  Updated with {sum(len(v) for v in entities.values())} entities")
-                            
-                    except Exception as e:
-                        print(f"Error processing {doc_path}: {e}")
-                        skipped += 1
-
+                    files_to_process.append((doc_path, json_path, committee))
                     break
 
             if not doc_found:
@@ -215,26 +171,126 @@ def enhance_json_with_nlp(base_dir="data/Processed_Committees", limit=None, batc
 
             count += 1
 
-            # Show batch statistics
-            if count % batch_size == 0:
-                print(f"\n--- Batch progress after {count} files ---")
-                print(f"Files processed so far: {processed}")
-                print(f"JSON files updated: {updated}")
-                print(f"Files already enhanced: {already_enhanced}")
-                print(f"Files skipped due to errors: {skipped}")
-                print(f"JSON files without corresponding documents: {missing_files}")
+            # Process in batches
+            if len(files_to_process) >= batch_size or (limit and count >= limit):
+                # Extract just the file paths for batch processing
+                doc_paths = [item[0] for item in files_to_process]
+                
+                # Process the batch
+                try:
+                    batch_results = extract_entities_batch(doc_paths)
+                    
+                    # Update JSON files with results
+                    for (doc_path, json_path, committee), entities in zip(files_to_process, batch_results):
+                        try:
+                            # Update counters
+                            for entity_type, entity_list in entities.items():
+                                for entity in entity_list:
+                                    all_entities[entity_type][entity] += 1
+                                    committee_entities[committee][entity_type][entity] += 1
 
-                # Print a few top entities from the current batch
-                print("\nSome top people found so far:")
-                for person, cnt in all_entities["PERSON"].most_common(3):
-                    print(f"  {person}: {cnt} mentions")
-                print("...")
+                            # Load existing JSON-LD
+                            with open(json_path, 'r', encoding='utf-8') as f:
+                                metadata = json.load(f)
+
+                            # Add entities to metadata
+                            if "entities" not in metadata:
+                                metadata["entities"] = {}
+
+                            # Add each entity type
+                            for entity_type, entity_list in entities.items():
+                                if entity_list:  # Only add non-empty lists
+                                    metadata["entities"][entity_type] = entity_list
+
+                            # Add keywords from entities (top organizations and people)
+                            keywords = []
+
+                            # Add up to 3 people
+                            if entities["PERSON"]:
+                                keywords.extend(entities["PERSON"][:min(3, len(entities["PERSON"]))])
+
+                            # Add up to 3 organizations
+                            if entities["ORG"]:
+                                keywords.extend(entities["ORG"][:min(3, len(entities["ORG"]))])
+
+                            # Add keywords to metadata if we found any
+                            if keywords:
+                                metadata["keywords"] = keywords
+
+                            # Save updated JSON-LD
+                            with open(json_path, 'w', encoding='utf-8') as f:
+                                json.dump(metadata, f, indent=4)
+
+                            updated += 1
+                            processed += 1
+                                
+                        except Exception as e:
+                            print(f"Error updating {json_path}: {e}")
+                            skipped += 1
+                    
+                    # Show batch progress
+                    print(f"\n--- Batch completed: processed {len(files_to_process)} files ---")
+                    print(f"Total files processed so far: {processed}")
+                    print(f"JSON files updated: {updated}")
+                    
+                except Exception as e:
+                    print(f"Error processing batch: {e}")
+                    skipped += len(files_to_process)
+                
+                # Clear the batch
+                files_to_process = []
 
             if limit and count >= limit:
                 break
 
         if limit and count >= limit:
             break
+
+    # Process any remaining files in the last batch
+    if files_to_process:
+        doc_paths = [item[0] for item in files_to_process]
+        try:
+            batch_results = extract_entities_batch(doc_paths)
+            
+            for (doc_path, json_path, committee), entities in zip(files_to_process, batch_results):
+                try:
+                    # Update counters
+                    for entity_type, entity_list in entities.items():
+                        for entity in entity_list:
+                            all_entities[entity_type][entity] += 1
+                            committee_entities[committee][entity_type][entity] += 1
+
+                    # Load and update JSON
+                    with open(json_path, 'r', encoding='utf-8') as f:
+                        metadata = json.load(f)
+
+                    if "entities" not in metadata:
+                        metadata["entities"] = {}
+
+                    for entity_type, entity_list in entities.items():
+                        if entity_list:
+                            metadata["entities"][entity_type] = entity_list
+
+                    # Add keywords
+                    keywords = []
+                    if entities["PERSON"]:
+                        keywords.extend(entities["PERSON"][:3])
+                    if entities["ORG"]:
+                        keywords.extend(entities["ORG"][:3])
+                    if keywords:
+                        metadata["keywords"] = keywords
+
+                    with open(json_path, 'w', encoding='utf-8') as f:
+                        json.dump(metadata, f, indent=4)
+
+                    updated += 1
+                    processed += 1
+                        
+                except Exception as e:
+                    print(f"Error updating {json_path}: {e}")
+                    skipped += 1
+        except Exception as e:
+            print(f"Error processing final batch: {e}")
 
     # Update project metadata with top entities
     project_metadata_path = os.path.join(base_dir, "..", "project_metadata.jsonld")
@@ -297,3 +353,14 @@ def enhance_json_with_nlp(base_dir="data/Processed_Committees", limit=None, batc
         "all_entities": all_entities,
         "committee_entities": committee_entities
     }
+
+# If running this file directly, you can test the function
+if __name__ == "__main__":
+    # Test with a small batch first
+    results = enhance_json_with_nlp(
+        base_dir="data/Processed_Committees",
+        limit=50,  # Start small to test performance
+        batch_size=25,
+        skip_existing=True
+    )
+    print("Test completed successfully!")
