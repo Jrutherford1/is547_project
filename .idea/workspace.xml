@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="808c41b2-d989-40ec-acd2-cc56c8e47cf0" name="Changes" comment="leaving off with the beginning of building the graph....">
+    <list default="true" id="808c41b2-d989-40ec-acd2-cc56c8e47cf0" name="Changes" comment="had to streamline the nlp extract and json enhance, so now it takes about 3.5 minutes rather than 30-40 minutes">
+      <change afterPath="$PROJECT_DIR$/data_pipeline/build_redacted_knowlege_graph.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_pipeline/metadata_check.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/final_updated_committee_names.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/names.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/data_pipeline/add_nlp_terms_to_metadata.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_pipeline/add_nlp_terms_to_metadata.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_pipeline/build_knowlege_graph.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/is547_project.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/is547_project.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project_metadata.jsonld" beforeDir="false" afterPath="$PROJECT_DIR$/project_metadata.jsonld" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,8 +100,8 @@
       <recent name="$PROJECT_DIR$/data" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.build_knowlege_graph">
-    <configuration name="build_knowlege_graph" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.build_redacted_knowlege_graph">
+    <configuration name="build_redacted_knowlege_graph" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="IS547_Project" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -115,7 +115,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data_pipeline/build_knowlege_graph.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data_pipeline/build_redacted_knowlege_graph.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -149,7 +149,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.build_knowlege_graph" />
+        <item itemvalue="Python.build_redacted_knowlege_graph" />
         <item itemvalue="Python.data_explore" />
       </list>
     </recent_temporary>
@@ -231,7 +231,8 @@
       <workItem from="1748618846025" duration="275000" />
       <workItem from="1748619139807" duration="7280000" />
       <workItem from="1748629741775" duration="1861000" />
-      <workItem from="1748689070777" duration="1203000" />
+      <workItem from="1748689070777" duration="14958000" />
+      <workItem from="1748734296259" duration="886000" />
     </task>
     <task id="LOCAL-00001" summary="starting basic processing and setup">
       <option name="closed" value="true" />
@@ -481,14 +482,21 @@
       <option name="project" value="LOCAL" />
       <updated>1748631591950</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="had to streamline the nlp extract and json enhance, so now it takes about 3.5 minutes rather than 30-40 minutes">
+      <option name="closed" value="true" />
+      <created>1748691809202</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1748691809202</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="starting basic processing and setup" />
     <MESSAGE value="first run of data cleaning and naming kind of complete, see readme.md, manual manipulation of initial data, and manual cleaning post running generate_names_csv" />
     <MESSAGE value="curating notes into readme.md" />
     <MESSAGE value="many updates to logic, all working and now manually curated name data added for further processing" />
@@ -513,7 +521,8 @@
     <MESSAGE value="cleaned up metadata enchancmenet functions, reduced duplication" />
     <MESSAGE value="used nlp to add terms to json-ld metadata" />
     <MESSAGE value="leaving off with the beginning of building the graph...." />
-    <option name="LAST_COMMIT_MESSAGE" value="leaving off with the beginning of building the graph...." />
+    <MESSAGE value="had to streamline the nlp extract and json enhance, so now it takes about 3.5 minutes rather than 30-40 minutes" />
+    <option name="LAST_COMMIT_MESSAGE" value="had to streamline the nlp extract and json enhance, so now it takes about 3.5 minutes rather than 30-40 minutes" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/IS547_Project$build_knowlege_graph.coverage" NAME="build_knowlege_graph Coverage Results" MODIFIED="1748631491264" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data_pipeline" />

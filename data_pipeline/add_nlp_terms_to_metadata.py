@@ -11,6 +11,13 @@ nlp = spacy.load("en_core_web_sm", disable=["parser", "tagger"])  # Only keep wh
 # Import the NLP functions from the existing module
 from data_pipeline.nlp_term_extraction_preview import extract_text
 
+# In your add_nlp_terms_to_metadata.py file
+PERSON_FILTER_TERMS = {
+    "Library", "Librarian", "Librarians", "Staff", "Committee", 
+    "Chair", "Chairperson", "Member", "Members", "Director",
+    "University", "UIUC", "Illinois", "Department"
+}
+
 def extract_entities_batch(file_paths):
     """
     Extracts entities from multiple files using batch processing.
@@ -188,6 +195,14 @@ def enhance_json_with_nlp(base_dir="data/Processed_Committees", limit=None, batc
                                 for entity in entity_list:
                                     all_entities[entity_type][entity] += 1
                                     committee_entities[committee][entity_type][entity] += 1
+                            
+                            # Then when processing PERSON entities:
+                            if "PERSON" in entities:
+                                filtered_people = [person for person in entities["PERSON"] 
+                                                  if person not in PERSON_FILTER_TERMS and 
+                                                  not any(filter_term.lower() in person.lower() 
+                                                         for filter_term in PERSON_FILTER_TERMS)]
+                                entities["PERSON"] = filtered_people
 
                             # Load existing JSON-LD
                             with open(json_path, 'r', encoding='utf-8') as f:
@@ -259,6 +274,14 @@ def enhance_json_with_nlp(base_dir="data/Processed_Committees", limit=None, batc
                         for entity in entity_list:
                             all_entities[entity_type][entity] += 1
                             committee_entities[committee][entity_type][entity] += 1
+                    
+                    # Then when processing PERSON entities:
+                    if "PERSON" in entities:
+                        filtered_people = [person for person in entities["PERSON"] 
+                                          if person not in PERSON_FILTER_TERMS and 
+                                          not any(filter_term.lower() in person.lower() 
+                                                 for filter_term in PERSON_FILTER_TERMS)]
+                        entities["PERSON"] = filtered_people
 
                     # Load and update JSON
                     with open(json_path, 'r', encoding='utf-8') as f:

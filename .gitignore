@@ -1,6 +1,6 @@
 # PyCharm specific
 .idea/
-
+lib/
 # macOS specific
 .DS_Store
 
