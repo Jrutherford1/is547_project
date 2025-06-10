@@ -3,7 +3,7 @@ import json
 from collections import defaultdict, Counter
 from pathlib import Path
 import spacy
-import hashlib
+
 
 # Load the spaCy model ONCE at module level - this is key for performance!
 nlp = spacy.load("en_core_web_sm", disable=["parser", "tagger"])  # Only keep what you need
