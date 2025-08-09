@@ -73,7 +73,15 @@ def extract_entities_batch(file_paths):
 def enhance_json_with_nlp(base_dir="data/Processed_Committees", limit=None, batch_size=100, progress_interval=10, skip_existing=True):
     """
     Enhances existing JSON-LD metadata files with NLP-extracted entities using batch processing.
+    Only prints summary information and suppresses PDF warnings.
     """
+    import warnings
+    import logging
+    
+    # Suppress PDF cropbox warnings and other pdfplumber warnings
+    warnings.filterwarnings("ignore", category=UserWarning, module="pdfplumber")
+    logging.getLogger("pdfplumber").setLevel(logging.ERROR)
+    
     count = 0
     processed = 0
     updated = 0
@@ -98,22 +106,18 @@ def enhance_json_with_nlp(base_dir="data/Processed_Committees", limit=None, batc
         "DATE": Counter()
     })
 
-    print(f"Enhancing JSON-LD metadata with NLP entities using batch processing...")
-
     # First, count how many files we'll be processing
     total_json_files = 0
     for root, _, files in os.walk(base_dir):
         json_files = [f for f in files if f.endswith(".json") and f != "project_metadata.jsonld"]
         total_json_files += len(json_files)
 
+    print(f"Starting NLP enhancement of {total_json_files} JSON metadata files...")
     if limit:
-        print(f"Will process up to {limit} of {total_json_files} JSON files")
-    else:
-        print(f"Found {total_json_files} JSON files to process")
+        print(f"Processing limit: {limit} files")
 
     # Collect files to process in batches
     files_to_process = []
-    json_paths = []
     
     # Process files
     for root, _, files in os.walk(base_dir):
@@ -123,11 +127,6 @@ def enhance_json_with_nlp(base_dir="data/Processed_Committees", limit=None, batc
             json_path = os.path.join(root, json_file)
             base_name = Path(json_file).stem
             rel_path = os.path.relpath(json_path, base_dir)
-
-            # Show periodic progress updates
-            if count % progress_interval == 0:
-                limit_text = f"/{limit}" if limit else f"/{total_json_files}"
-                print(f"Processing file {count}{limit_text}: {rel_path}")
 
             # Extract committee name from path
             path_parts = rel_path.split(os.sep)
@@ -152,15 +151,12 @@ def enhance_json_with_nlp(base_dir="data/Processed_Committees", limit=None, batc
                         already_enhanced += 1
                         count += 1
                         
-                        if count % progress_interval == 0:
-                            print(f"  Skipped - already has entities")
-                        
                         if limit and count >= limit:
                             break
                         continue
-                except Exception as e:
+                except Exception:
                     # If there's any error reading the file, continue with processing
-                    print(f"Error reading {json_path}: {e}")
+                    pass
 
             # Try to find corresponding document file
             doc_found = False
@@ -173,8 +169,6 @@ def enhance_json_with_nlp(base_dir="data/Processed_Committees", limit=None, batc
 
             if not doc_found:
                 missing_files += 1
-                if count % progress_interval == 0:
-                    print(f"  No corresponding document found")
 
             count += 1
 
@@ -183,7 +177,7 @@ def enhance_json_with_nlp(base_dir="data/Processed_Committees", limit=None, batc
                 # Extract just the file paths for batch processing
                 doc_paths = [item[0] for item in files_to_process]
                 
-                # Process the batch
+                # Process the batch (suppress output)
                 try:
                     batch_results = extract_entities_batch(doc_paths)
                     
@@ -196,7 +190,7 @@ def enhance_json_with_nlp(base_dir="data/Processed_Committees", limit=None, batc
                                     all_entities[entity_type][entity] += 1
                                     committee_entities[committee][entity_type][entity] += 1
                             
-                            # Then when processing PERSON entities:
+                            # Filter PERSON entities
                             if "PERSON" in entities:
                                 filtered_people = [person for person in entities["PERSON"] 
                                                   if person not in PERSON_FILTER_TERMS and 
@@ -239,17 +233,14 @@ def enhance_json_with_nlp(base_dir="data/Processed_Committees", limit=None, batc
                             updated += 1
                             processed += 1
                                 
-                        except Exception as e:
-                            print(f"Error updating {json_path}: {e}")
+                        except Exception:
                             skipped += 1
                     
-                    # Show batch progress
-                    print(f"\n--- Batch completed: processed {len(files_to_process)} files ---")
-                    print(f"Total files processed so far: {processed}")
-                    print(f"JSON files updated: {updated}")
+                    # Show progress every few batches
+                    if processed % (batch_size * 5) == 0 and processed > 0:
+                        print(f"Progress: {processed} files processed, {updated} updated")
                     
-                except Exception as e:
-                    print(f"Error processing batch: {e}")
+                except Exception:
                     skipped += len(files_to_process)
                 
                 # Clear the batch
@@ -275,7 +266,7 @@ def enhance_json_with_nlp(base_dir="data/Processed_Committees", limit=None, batc
                             all_entities[entity_type][entity] += 1
                             committee_entities[committee][entity_type][entity] += 1
                     
-                    # Then when processing PERSON entities:
+                    # Filter PERSON entities
                     if "PERSON" in entities:
                         filtered_people = [person for person in entities["PERSON"] 
                                           if person not in PERSON_FILTER_TERMS and 
@@ -294,7 +285,7 @@ def enhance_json_with_nlp(base_dir="data/Processed_Committees", limit=None, batc
                         if entity_list:
                             metadata["entities"][entity_type] = entity_list
 
-                    # Add keywords
+                    # Add keywords from entities
                     keywords = []
                     if entities["PERSON"]:
                         keywords.extend(entities["PERSON"][:3])
@@ -303,87 +294,41 @@ def enhance_json_with_nlp(base_dir="data/Processed_Committees", limit=None, batc
                     if keywords:
                         metadata["keywords"] = keywords
 
+                    # Save updated JSON-LD
                     with open(json_path, 'w', encoding='utf-8') as f:
                         json.dump(metadata, f, indent=4)
 
                     updated += 1
                     processed += 1
                         
-                except Exception as e:
-                    print(f"Error updating {json_path}: {e}")
+                except Exception:
                     skipped += 1
-        except Exception as e:
-            print(f"Error processing final batch: {e}")
+                    
+        except Exception:
+            skipped += len(files_to_process)
 
-    # Update project metadata with top entities
-    project_metadata_path = os.path.join(base_dir, "..", "project_metadata.jsonld")
-    if os.path.exists(project_metadata_path):
-        try:
-            with open(project_metadata_path, 'r', encoding='utf-8') as f:
-                project_metadata = json.load(f)
-
-            # Add top entities to project metadata
-            project_metadata["entities"] = {
-                "topPeople": [person for person, _ in all_entities["PERSON"].most_common(20)],
-                "topOrganizations": [org for org, _ in all_entities["ORG"].most_common(20)],
-                "topLocations": [loc for loc, _ in all_entities["GPE"].most_common(10)]
-            }
-
-            # Update keywords in project metadata with top entities
-            if "keywords" not in project_metadata:
-                project_metadata["keywords"] = []
-
-            # Add top 5 organizations to keywords if not already there
-            for org, _ in all_entities["ORG"].most_common(5):
-                if org not in project_metadata["keywords"]:
-                    project_metadata["keywords"].append(org)
-
-            # Save updated project metadata
-            with open(project_metadata_path, 'w', encoding='utf-8') as f:
-                json.dump(project_metadata, f, indent=4)
-
-            print(f"Updated project metadata with top entities")
-        except Exception as e:
-            print(f"Error updating project metadata: {e}")
-
-    # Print summary
-    print("\n=== NLP Entity Extraction Summary ===")
+    # Print final summary
+    print(f"\n=== NLP Enhancement Complete ===")
+    print(f"Files examined: {count}")
     print(f"Files processed: {processed}")
     print(f"JSON files updated: {updated}")
-    print(f"Files already enhanced (skipped): {already_enhanced}")
-    print(f"Files skipped due to errors: {skipped}")
-    print(f"JSON files without corresponding documents: {missing_files}")
+    print(f"Already enhanced: {already_enhanced}")
+    print(f"Missing documents: {missing_files}")
+    print(f"Skipped (errors): {skipped}")
+    
+    # Entity summary
+    total_entities = sum(len(entities) for entities in all_entities.values())
+    print(f"\nEntities extracted:")
+    for entity_type, entities in all_entities.items():
+        print(f"  {entity_type}: {len(entities)} unique")
+    print(f"Total unique entities: {total_entities}")
 
-    print("\nTop 10 people mentioned:")
-    for person, count in all_entities["PERSON"].most_common(10):
-        print(f"  {person}: {count} mentions")
-
-    print("\nTop 10 organizations mentioned:")
-    for org, count in all_entities["ORG"].most_common(10):
-        print(f"  {org}: {count} mentions")
-
-    print("\nTop 5 locations mentioned:")
-    for loc, count in all_entities["GPE"].most_common(5):
-        print(f"  {loc}: {count} mentions")
-
-    # Return statistics for further analysis if needed
     return {
         "processed": processed,
         "updated": updated,
-        "skipped": skipped,
         "already_enhanced": already_enhanced,
-        "missing": missing_files,
-        "all_entities": all_entities,
-        "committee_entities": committee_entities
+        "missing_files": missing_files,
+        "skipped": skipped,
+        "entities": dict(all_entities),
+        "committee_entities": dict(committee_entities)
     }
-
-# If running this file directly, you can test the function
-if __name__ == "__main__":
-    # Test with a small batch first
-    results = enhance_json_with_nlp(
-        base_dir="data/Processed_Committees",
-        limit=50,  # Start small to test performance
-        batch_size=25,
-        skip_existing=True
-    )
-    print("Test completed successfully!")
