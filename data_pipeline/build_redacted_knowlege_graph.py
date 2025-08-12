@@ -9,13 +9,13 @@ def create_person_centric_graph(base_dir="data/Processed_Committees",
                                 min_person_mentions=2):
     """
     Creates an interactive graph where clicking a person shows only their connections
-    
+
     Args:
         base_dir: Base directory containing processed files
         committee: Optional committee to focus on
         limit: Maximum number of files to process
         min_person_mentions: Minimum mentions to include a person
-    
+
     Returns:
         NetworkX graph object
     """
@@ -138,50 +138,48 @@ def create_interactive_person_explorer(G, output_file="person_explorer.html"):
         return
 
     # Create PyVis network
+    # notebook=True keeps inline-friendly behavior; physics disabled to avoid animations
     net = Network(height="800px", width="100%", notebook=True)
 
-    # Enhanced physics for better interaction
+    # Disable physics/animation entirely to prevent any layout animations or movement
     net.set_options("""
     {
       "physics": {
-        "forceAtlas2Based": {
-          "gravitationalConstant": -50,
-          "centralGravity": 0.01,
-          "springLength": 150,
-          "springConstant": 0.05
-        },
-        "maxVelocity": 50,
-        "solver": "forceAtlas2Based",
-        "timestep": 0.5,
-        "stabilization": {
-          "enabled": true,
-          "iterations": 1000
-        }
+        "enabled": false
       },
       "interaction": {
         "hover": true,
         "selectConnectedEdges": true,
-        "hideEdgesOnDrag": false
+        "hideEdgesOnDrag": false,
+        "dragNodes": false,
+        "dragView": true,
+        "zoomView": true
       },
       "nodes": {
         "font": {
           "size": 14
         },
         "borderWidth": 2,
-        "shadow": true
+        "shadow": false
       },
       "edges": {
         "color": {
           "inherit": false
         },
         "smooth": {
-          "enabled": true,
-          "type": "continuous"
+          "enabled": false
         },
-        "shadow": true
+        "shadow": false
       }
     }
     """)
+
+    # Ensure PyVis doesn't try to toggle physics later (explicitly turn off)
+    try:
+        net.toggle_physics(False)
+    except Exception:
+        # toggle_physics may not be available in some pyvis versions; ignore safely
+        pass
 
     # Colors for different node types
     colors = {
@@ -215,7 +213,8 @@ def create_interactive_person_explorer(G, output_file="person_explorer.html"):
             label=attrs.get("label", node),
             color=color,
             title=title,
-            size=size
+            size=size,
+            physics=False  # ensure each node is static
         )
 
     # Add edges with styling
@@ -226,21 +225,23 @@ def create_interactive_person_explorer(G, output_file="person_explorer.html"):
             u, v,
             color="#95a5a6",  # Gray for all connections
             width=2,
-            title=f"Connection: {edge_type}"
+            title=f"Connection: {edge_type}",
+            smooth=False
         )
 
     # Add custom JavaScript for person-clicking functionality
+    # Use network.fit({animation:false}) to prevent animated transitions
     custom_js = """
     <script>
     var allNodes = nodes.get();
     var allEdges = edges.get();
     var selectedPerson = null;
-    
+
     network.on("click", function(params) {
         if (params.nodes.length > 0) {
             var clickedNode = params.nodes[0];
             var nodeData = nodes.get(clickedNode);
-            
+
             // Check if clicked node is a person
             if (nodeData.id.startsWith('PERSON:')) {
                 if (selectedPerson === clickedNode) {
@@ -259,11 +260,11 @@ def create_interactive_person_explorer(G, output_file="person_explorer.html"):
             selectedPerson = null;
         }
     });
-    
+
     function showPersonOnly(personId) {
         var connectedNodes = [personId];
         var connectedEdges = [];
-        
+
         // Find all edges connected to this person
         allEdges.forEach(function(edge) {
             if (edge.from === personId || edge.to === personId) {
@@ -275,30 +276,39 @@ def create_interactive_person_explorer(G, output_file="person_explorer.html"):
                 }
             }
         });
-        
+
         // Filter nodes and edges
         var filteredNodes = allNodes.filter(function(node) {
             return connectedNodes.indexOf(node.id) !== -1;
         });
-        
-        // Update the network
+
+        // Update the network without animation
         nodes.clear();
         edges.clear();
         nodes.add(filteredNodes);
         edges.add(connectedEdges);
-        
-        // Fit the view
-        network.fit();
-        
+
+        // Fit the view without animation
+        try {
+            network.fit({animation:false});
+        } catch (e) {
+            // fallback if fit doesn't accept options
+            network.fit();
+        }
+
         console.log("Showing person: " + personId + " with " + connectedNodes.length + " nodes");
     }
-    
+
     function showAllNodes() {
         nodes.clear();
         edges.clear();
         nodes.add(allNodes);
         edges.add(allEdges);
-        network.fit();
+        try {
+            network.fit({animation:false});
+        } catch (e) {
+            network.fit();
+        }
         console.log("Showing all nodes");
     }
     </script>
@@ -322,6 +332,7 @@ def create_interactive_person_explorer(G, output_file="person_explorer.html"):
     print("- Click on any person (blue node) to see only their document connections")
     print("- Click the same person again or click empty space to show all nodes")
     print("- Hover over nodes to see detailed information")
+    print("- Physics and animations are disabled so the graph stays static")
 
     return net
 
