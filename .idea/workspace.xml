@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="808c41b2-d989-40ec-acd2-cc56c8e47cf0" name="Changes" comment="updaed knowledge graph creation.">
+    <list default="true" id="808c41b2-d989-40ec-acd2-cc56c8e47cf0" name="Changes" comment="update gitignore">
+      <change afterPath="$PROJECT_DIR$/.claude/agents/feature-planner.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.claude/agents/python-coder.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.claude/commands/document-session.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.claude/commands/implement-improvement.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_pipeline/neo4j_export.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/knowledge_graph_explorer.html" beforeDir="false" afterPath="$PROJECT_DIR$/knowledge_graph_explorer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CLAUDE.md" beforeDir="false" afterPath="$PROJECT_DIR$/CLAUDE.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/is547_project.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/is547_project.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +96,7 @@
     "ai.playground.ignore.import.keys.banner.in.settings": "true",
     "git-widget-placeholder": "#10 on branch__one",
     "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "/Users/johnrr3/PycharmProjects/IS547_Project",
+    "last_opened_file_path": "/Users/johnrr3/PycharmProjects/IS547_Project/.claude/commands",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -103,6 +108,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/.claude/commands" />
+      <recent name="$PROJECT_DIR$/.claude/agents" />
       <recent name="$PROJECT_DIR$/data" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -565,15 +572,29 @@
       <option name="project" value="LOCAL" />
       <updated>1755011873070</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="add claude.md">
+      <option name="closed" value="true" />
+      <created>1768136277208</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1768136277208</updated>
+    </task>
+    <task id="LOCAL-00039" summary="update gitignore">
+      <option name="closed" value="true" />
+      <created>1768136306042</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1768136306042</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add the names data to git" />
-    <MESSAGE value="final names output generated from new function &quot;build_final_filenames&quot;.  It worked beautifully.  Now to add the function to write the names to all the files in the folders." />
     <MESSAGE value="added final_updated_committee_names.csv to git" />
     <MESSAGE value="ran the code and produced the final names, noticed that empty committees and folders deleted.  Does that matter?  I was using empties as evidence nothing was there to begin with, but is this a &quot;tree fell in forest&quot; situation??" />
     <MESSAGE value="documentation, found errors" />
@@ -597,7 +618,9 @@
     <MESSAGE value="minor updates" />
     <MESSAGE value="add metadat and knowledge graph" />
     <MESSAGE value="updaed knowledge graph creation." />
-    <option name="LAST_COMMIT_MESSAGE" value="updaed knowledge graph creation." />
+    <MESSAGE value="add claude.md" />
+    <MESSAGE value="update gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="update gitignore" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -610,8 +633,9 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/IS547_Project$build_knowlege_graph.coverage" NAME="build_knowlege_graph Coverage Results" MODIFIED="1748631491264" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data_pipeline" />
     <SUITE FILE_PATH="coverage/IS547_Project$data_explore.coverage" NAME="data_explore Coverage Results" MODIFIED="1741725976148" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data_pipeline" />
+    <SUITE FILE_PATH="coverage/IS547_Project$build_knowlege_graph.coverage" NAME="build_knowlege_graph Coverage Results" MODIFIED="1748631491264" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data_pipeline" />
+    <SUITE FILE_PATH="coverage/IS547_Project$build_redacted_knowlege_graph.coverage" NAME="build_redacted_knowlege_graph Coverage Results" MODIFIED="1768135283719" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data_pipeline" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>

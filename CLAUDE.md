@@ -35,6 +35,7 @@ IS547_Project/
 │   ├── add_nlp_terms_to_metadata.py  # Batch NLP entity extraction
 │   ├── nlp_term_extraction_preview.py # Text extraction from docs
 │   ├── build_redacted_knowlege_graph.py # Knowledge graph builder
+│   ├── neo4j_export.py          # Export to Neo4j (Cypher + CSV)
 │   ├── metadata_check.py        # Validation utilities
 │   └── project_metadata.py      # Project-level metadata generation
 ├── lib/                         # Frontend visualization libraries
@@ -44,6 +45,8 @@ IS547_Project/
 ├── is547_project.ipynb          # Main orchestration notebook
 ├── knowledge_graph_explorer.html # Interactive person-document graph
 ├── project_metadata.jsonld      # Dataset-level Schema.org metadata
+├── docs/                        # Project documentation
+│   └── sessions/                # Work session logs
 ├── requirements.txt             # Python dependencies
 └── README.md                    # Project documentation
 ```
@@ -59,6 +62,7 @@ The pipeline processes documents through these stages:
 5. **Enhance Metadata** (`enhance_metadata.py`) - Create JSON-LD files with SHA-256 checksums
 6. **NLP Extraction** (`add_nlp_terms_to_metadata.py`) - Extract entities with spaCy batch processing
 7. **Build Graph** (`build_redacted_knowlege_graph.py`) - Generate interactive knowledge graph
+8. **Neo4j Export** (`neo4j_export.py`) - Export to Neo4j graph database (optional)
 
 ## Key Dependencies
 
@@ -94,6 +98,13 @@ check_person_entities()
 from data_pipeline.nlp_term_extraction_preview import run_entity_preview
 run_entity_preview(limit=50)
 ```
+
+### Export to Neo4j
+```python
+from data_pipeline.neo4j_export import export_to_neo4j
+export_to_neo4j(output_format="both")  # Creates Cypher + CSV
+```
+Output: `data/neo4j_export/neo4j_import.cypher` and `data/neo4j_export/csv/`
 
 ## Metadata Format
 
@@ -149,3 +160,4 @@ The `knowledge_graph_explorer.html` visualization provides:
 - **Entity filtering**: Generic terms (Library, Staff, Committee, etc.) filtered from PERSON entities
 - **Static layout**: Knowledge graph uses frozen physics for stable viewing
 - **No server required**: Visualization runs entirely client-side
+- **Neo4j export**: Supports both Cypher scripts and CSV bulk import formats
