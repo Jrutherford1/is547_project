@@ -1,63 +1,333 @@
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
-        
+        <title>Library Committee Knowledge Graph Explorer</title>
+
             <script src="lib/bindings/utils.js"></script>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
             <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
             
         
-<center>
-<h1></h1>
-</center>
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+  integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+  crossorigin="anonymous"
+/>
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+  crossorigin="anonymous"
+></script>
 
-<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
-<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
-        <link
-          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
-          rel="stylesheet"
-          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
-          crossorigin="anonymous"
-        />
-        <script
-          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
-          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
-          crossorigin="anonymous"
-        ></script>
+<style type="text/css">
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #f5f7fa;
+    }
 
+    .header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 20px 30px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
 
-        <center>
-          <h1></h1>
-        </center>
-        <style type="text/css">
+    .header h1 {
+        margin: 0;
+        font-size: 28px;
+        font-weight: 600;
+    }
 
-             #mynetwork {
-                 width: 100%;
-                 height: 800px;
-                 background-color: #ffffff;
-                 border: 1px solid lightgray;
-                 position: relative;
-                 float: left;
-             }
+    .header p {
+        margin: 5px 0 0 0;
+        opacity: 0.9;
+        font-size: 14px;
+    }
 
-             
+    .controls {
+        background: white;
+        padding: 20px 30px;
+        border-bottom: 1px solid #e1e4e8;
+        display: flex;
+        gap: 15px;
+        align-items: center;
+        flex-wrap: wrap;
+    }
 
-             
+    .controls label {
+        font-weight: 600;
+        font-size: 14px;
+        color: #24292e;
+        margin-right: 8px;
+    }
 
-             
-        </style>
+    .controls input, .controls select {
+        padding: 8px 12px;
+        border: 1px solid #d1d5db;
+        border-radius: 6px;
+        font-size: 14px;
+    }
+
+    .controls button {
+        padding: 8px 16px;
+        border: none;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+
+    .btn-primary {
+        background: #667eea;
+        color: white;
+    }
+
+    .btn-primary:hover {
+        background: #5568d3;
+        transform: translateY(-1px);
+        box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+    }
+
+    .btn-secondary {
+        background: #6c757d;
+        color: white;
+    }
+
+    .btn-secondary:hover {
+        background: #5a6268;
+    }
+
+    #mynetwork {
+        width: 100%;
+        height: calc(100vh - 200px);
+        min-height: 600px;
+        background: linear-gradient(to bottom, #ffffff 0%, #f9fafb 100%);
+        border: none;
+    }
+
+    .legend {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: white;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+        z-index: 1000;
+        font-size: 13px;
+    }
+
+    .legend-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        font-size: 14px;
+        color: #24292e;
+    }
+
+    .legend-item {
+        display: flex;
+        align-items: center;
+        margin: 8px 0;
+        gap: 8px;
+    }
+
+    .legend-color {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        border: 2px solid rgba(0,0,0,0.1);
+    }
+
+    .stats {
+        background: white;
+        padding: 10px 30px;
+        border-top: 1px solid #e1e4e8;
+        font-size: 13px;
+        color: #586069;
+        display: flex;
+        gap: 30px;
+    }
+
+    .stat-item {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .stat-value {
+        font-weight: 600;
+        color: #24292e;
+    }
+
+    .info-panel {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        width: 320px;
+        max-height: calc(100vh - 300px);
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+        z-index: 1000;
+        display: none;
+        overflow: hidden;
+    }
+
+    .info-panel-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 15px;
+        font-weight: 600;
+        font-size: 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .info-panel-close {
+        cursor: pointer;
+        font-size: 20px;
+        line-height: 1;
+        opacity: 0.8;
+    }
+
+    .info-panel-close:hover {
+        opacity: 1;
+    }
+
+    .info-panel-body {
+        padding: 20px;
+        overflow-y: auto;
+        max-height: calc(100vh - 360px);
+    }
+
+    .info-item {
+        margin-bottom: 15px;
+    }
+
+    .info-label {
+        font-weight: 600;
+        color: #586069;
+        font-size: 12px;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+    }
+
+    .info-value {
+        color: #24292e;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .info-connections {
+        margin-top: 10px;
+    }
+
+    .connection-badge {
+        display: inline-block;
+        background: #f3f4f6;
+        padding: 4px 8px;
+        border-radius: 4px;
+        margin: 3px;
+        font-size: 12px;
+        color: #4b5563;
+    }
+</style>
     </head>
 
 
     <body>
-        <div class="card" style="width: 100%">
-            
-            
-            <div id="mynetwork" class="card-body"></div>
+    <div class="header">
+        <h1>📊 Library Committee Knowledge Graph</h1>
+        <p>Explore connections between people, documents, and committees</p>
+    </div>
+
+    <div class="controls">
+        <div>
+            <label>Search:</label>
+            <input type="text" id="searchBox" placeholder="Search nodes..." style="width: 250px;">
+        </div>
+        <div>
+            <label>Filter:</label>
+            <select id="filterType">
+                <option value="all">All Nodes</option>
+                <option value="documents">Documents Only</option>
+                <option value="people">People Only</option>
+                <option value="minutes">Minutes Only</option>
+            </select>
+        </div>
+        <button class="btn-primary" onclick="applyFilter()">Apply Filter</button>
+        <button class="btn-secondary" onclick="resetView()">Reset View</button>
+        <button class="btn-primary" onclick="togglePhysics()" id="physicsBtn">Freeze Layout</button>
+    </div>
+
+    <div style="position: relative;">
+        <div id="mynetwork"></div>
+
+        <div id="loadingOverlay" style="display: none; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255,255,255,0.9); z-index: 2000;">
+            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+                <div style="font-size: 18px; font-weight: 600; color: #667eea; margin-bottom: 10px;">Arranging nodes...</div>
+                <div style="font-size: 14px; color: #6c757d;">This will just take a moment</div>
+            </div>
         </div>
 
-        
-        
+        <div class="info-panel" id="infoPanel">
+            <div class="info-panel-header">
+                <span id="infoPanelTitle">Node Information</span>
+                <span class="info-panel-close" onclick="closeInfoPanel()">×</span>
+            </div>
+            <div class="info-panel-body" id="infoPanelBody">
+                <p style="color: #6c757d; font-size: 14px;">Click a node to see details</p>
+            </div>
+        </div>
+
+        <div class="legend">
+            <div class="legend-title">Legend</div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #e74c3c;"></div>
+                <span>Documents</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #3498db;"></div>
+                <span>People</span>
+            </div>
+            <div class="legend-item">
+                <div style="width: 16px; height: 3px; background: #95a5a6;"></div>
+                <span>Connections</span>
+            </div>
+            <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #e1e4e8; font-size: 12px; color: #586069;">
+                💡 Click a person to filter<br>
+                🖱️ Drag to pan, scroll to zoom
+            </div>
+        </div>
+    </div>
+
+    <div class="stats">
+        <div class="stat-item">
+            <span>Total Nodes:</span>
+            <span class="stat-value" id="totalNodes">0</span>
+        </div>
+        <div class="stat-item">
+            <span>Documents:</span>
+            <span class="stat-value" id="docCount">0</span>
+        </div>
+        <div class="stat-item">
+            <span>People:</span>
+            <span class="stat-value" id="peopleCount">0</span>
+        </div>
+        <div class="stat-item">
+            <span>Connections:</span>
+            <span class="stat-value" id="edgeCount">0</span>
+        </div>
+        <div class="stat-item" id="filterStatus" style="margin-left: auto; color: #667eea;">
+            <span>Showing all nodes</span>
+        </div>
+    </div>
+
 
         <script type="text/javascript">
 
@@ -100,7 +370,81 @@
                   // adding nodes and edges to the graph
                   data = {nodes: nodes, edges: edges};
 
-                  var options = {"physics": {"enabled": false}, "interaction": {"hover": true, "selectConnectedEdges": true, "hideEdgesOnDrag": false, "dragNodes": false, "dragView": true, "zoomView": true}, "nodes": {"font": {"size": 14}, "borderWidth": 2, "shadow": false}, "edges": {"color": {"inherit": false}, "smooth": {"enabled": false}, "shadow": false}};
+                  var options = {
+                      "physics": {
+                          "enabled": true,
+                          "barnesHut": {
+                              "gravitationalConstant": -30000,
+                              "centralGravity": 0.3,
+                              "springLength": 150,
+                              "springConstant": 0.04,
+                              "damping": 0.09,
+                              "avoidOverlap": 0.5
+                          },
+                          "stabilization": {
+                              "enabled": true,
+                              "iterations": 200,
+                              "updateInterval": 25
+                          }
+                      },
+                      "interaction": {
+                          "hover": true,
+                          "selectConnectedEdges": true,
+                          "hideEdgesOnDrag": false,
+                          "dragNodes": true,
+                          "dragView": true,
+                          "zoomView": true,
+                          "tooltipDelay": 100,
+                          "navigationButtons": true,
+                          "keyboard": {
+                              "enabled": true,
+                              "bindToWindow": false
+                          }
+                      },
+                      "nodes": {
+                          "font": {
+                              "size": 14,
+                              "face": "system-ui"
+                          },
+                          "borderWidth": 2,
+                          "shadow": {
+                              "enabled": true,
+                              "color": 'rgba(0,0,0,0.1)',
+                              "size": 5,
+                              "x": 2,
+                              "y": 2
+                          },
+                          "scaling": {
+                              "min": 10,
+                              "max": 50,
+                              "label": {
+                                  "enabled": true,
+                                  "min": 12,
+                                  "max": 20
+                              }
+                          }
+                      },
+                      "edges": {
+                          "color": {
+                              "inherit": false
+                          },
+                          "smooth": {
+                              "enabled": true,
+                              "type": "continuous",
+                              "roundness": 0.5
+                          },
+                          "shadow": {
+                              "enabled": false
+                          },
+                          "width": 1.5
+                      },
+                      "layout": {
+                          "improvedLayout": true,
+                          "hierarchical": {
+                              "enabled": false
+                          }
+                      }
+                  };
 
                   
 
@@ -109,7 +453,8 @@
 
                   network = new vis.Network(container, data, options);
 
-                  
+                  // Update stats after network is created
+                  updateStats();
 
                   
 
@@ -121,6 +466,269 @@
                   return network;
 
               }
+
+              var physicsEnabled = true;
+
+              function showLoading() {
+                  var overlay = document.getElementById('loadingOverlay');
+                  if (overlay) {
+                      overlay.style.display = 'block';
+                  }
+              }
+
+              function hideLoading() {
+                  var overlay = document.getElementById('loadingOverlay');
+                  if (overlay) {
+                      overlay.style.display = 'none';
+                  }
+              }
+
+              function updateStats() {
+                  var currentNodes = nodes.get();
+                  var currentEdges = edges.get();
+                  var docCount = 0;
+                  var peopleCount = 0;
+
+                  currentNodes.forEach(function(node) {
+                      if (node.id.startsWith('PERSON:')) {
+                          peopleCount++;
+                      } else {
+                          docCount++;
+                      }
+                  });
+
+                  document.getElementById('totalNodes').textContent = currentNodes.length;
+                  document.getElementById('docCount').textContent = docCount;
+                  document.getElementById('peopleCount').textContent = peopleCount;
+                  document.getElementById('edgeCount').textContent = currentEdges.length;
+              }
+
+              function applyFilter() {
+                  showLoading();
+
+                  var filterType = document.getElementById('filterType').value;
+                  var searchTerm = document.getElementById('searchBox').value.toLowerCase();
+
+                  var filteredNodes = allNodes.filter(function(node) {
+                      var matchesType = true;
+                      var matchesSearch = true;
+
+                      if (filterType === 'documents') {
+                          matchesType = !node.id.startsWith('PERSON:');
+                      } else if (filterType === 'people') {
+                          matchesType = node.id.startsWith('PERSON:');
+                      } else if (filterType === 'minutes') {
+                          matchesType = node.title && node.title.includes('Minutes');
+                      }
+
+                      if (searchTerm) {
+                          matchesSearch = node.label.toLowerCase().includes(searchTerm) ||
+                                        (node.title && node.title.toLowerCase().includes(searchTerm));
+                      }
+
+                      return matchesType && matchesSearch;
+                  });
+
+                  var filteredNodeIds = filteredNodes.map(function(n) { return n.id; });
+                  var filteredEdges = allEdges.filter(function(edge) {
+                      return filteredNodeIds.indexOf(edge.from) !== -1 &&
+                             filteredNodeIds.indexOf(edge.to) !== -1;
+                  });
+
+                  // Use hierarchical layout for small result sets
+                  if (filteredNodes.length < 30) {
+                      network.setOptions({
+                          layout: {
+                              hierarchical: {
+                                  enabled: true,
+                                  direction: 'UD',
+                                  sortMethod: 'directed',
+                                  nodeSpacing: 200,
+                                  levelSeparation: 250
+                              }
+                          },
+                          physics: {
+                              enabled: false
+                          }
+                      });
+                  } else {
+                      network.setOptions({
+                          layout: {
+                              hierarchical: {
+                                  enabled: false
+                              }
+                          },
+                          physics: {
+                              enabled: true,
+                              stabilization: {
+                                  enabled: true,
+                                  iterations: 150
+                              }
+                          }
+                      });
+                  }
+
+                  nodes.clear();
+                  edges.clear();
+                  nodes.add(filteredNodes);
+                  edges.add(filteredEdges);
+
+                  setTimeout(function() {
+                      network.fit({
+                          animation: {
+                              duration: 800,
+                              easingFunction: 'easeInOutQuad'
+                          },
+                          padding: 100
+                      });
+                      hideLoading();
+                  }, 300);
+
+                  updateStats();
+
+                  var status = 'Showing ';
+                  if (filterType !== 'all') status += filterType;
+                  else status += 'all nodes';
+                  if (searchTerm) status += ' matching "' + searchTerm + '"';
+                  document.getElementById('filterStatus').innerHTML = '<span>' + status + '</span>';
+              }
+
+              function resetView() {
+                  selectedPerson = null;
+                  document.getElementById('searchBox').value = '';
+                  document.getElementById('filterType').value = 'all';
+                  showAllNodes();
+                  document.getElementById('filterStatus').innerHTML = '<span>Showing all nodes</span>';
+              }
+
+              function togglePhysics() {
+                  physicsEnabled = !physicsEnabled;
+                  network.setOptions({
+                      physics: {
+                          enabled: physicsEnabled
+                      }
+                  });
+
+                  var btn = event.target;
+                  if (physicsEnabled) {
+                      btn.textContent = 'Freeze Layout';
+                      btn.style.background = '#667eea';
+                  } else {
+                      btn.textContent = 'Unfreeze Layout';
+                      btn.style.background = '#e74c3c';
+                  }
+              }
+
+              function showNodeInfo(nodeId) {
+                  var node = nodes.get(nodeId);
+                  if (!node) return;
+
+                  var panel = document.getElementById('infoPanel');
+                  var title = document.getElementById('infoPanelTitle');
+                  var body = document.getElementById('infoPanelBody');
+
+                  var html = '';
+
+                  if (node.id.startsWith('PERSON:')) {
+                      // Person node
+                      var personName = node.label;
+                      title.textContent = '👤 ' + personName;
+
+                      // Count connections
+                      var connections = allEdges.filter(e => e.from === node.id || e.to === node.id);
+                      var docConnections = [];
+
+                      connections.forEach(function(edge) {
+                          var otherId = edge.from === node.id ? edge.to : edge.from;
+                          var otherNode = allNodes.find(n => n.id === otherId);
+                          if (otherNode && !otherNode.id.startsWith('PERSON:')) {
+                              docConnections.push(otherNode.label);
+                          }
+                      });
+
+                      html += '<div class="info-item">';
+                      html += '<div class="info-label">Name</div>';
+                      html += '<div class="info-value">' + personName + '</div>';
+                      html += '</div>';
+
+                      html += '<div class="info-item">';
+                      html += '<div class="info-label">Mentioned In</div>';
+                      html += '<div class="info-value">' + docConnections.length + ' documents</div>';
+                      html += '</div>';
+
+                      if (docConnections.length > 0) {
+                          html += '<div class="info-item">';
+                          html += '<div class="info-label">Connected Documents</div>';
+                          html += '<div class="info-connections">';
+                          docConnections.forEach(function(doc) {
+                              html += '<div class="connection-badge">📄 ' + doc + '</div>';
+                          });
+                          html += '</div>';
+                          html += '</div>';
+                      }
+                  } else {
+                      // Document node
+                      var docName = node.id;
+                      title.textContent = '📄 Document';
+
+                      // Parse the title for info
+                      var committee = 'Unknown';
+                      var docType = 'Unknown';
+
+                      if (node.title) {
+                          var titleMatch = node.title.match(/Committee: ([^<]+)/);
+                          var typeMatch = node.title.match(/Type: ([^<]+)/);
+                          if (titleMatch) committee = titleMatch[1];
+                          if (typeMatch) docType = typeMatch[1];
+                      }
+
+                      // Get connected people
+                      var connections = allEdges.filter(e => e.from === node.id || e.to === node.id);
+                      var peopleConnections = [];
+
+                      connections.forEach(function(edge) {
+                          var otherId = edge.from === node.id ? edge.to : edge.from;
+                          var otherNode = allNodes.find(n => n.id === otherId);
+                          if (otherNode && otherNode.id.startsWith('PERSON:')) {
+                              peopleConnections.push(otherNode.label);
+                          }
+                      });
+
+                      html += '<div class="info-item">';
+                      html += '<div class="info-label">File Name</div>';
+                      html += '<div class="info-value" style="word-break: break-word;">' + docName + '</div>';
+                      html += '</div>';
+
+                      html += '<div class="info-item">';
+                      html += '<div class="info-label">Committee</div>';
+                      html += '<div class="info-value">' + committee + '</div>';
+                      html += '</div>';
+
+                      html += '<div class="info-item">';
+                      html += '<div class="info-label">Type</div>';
+                      html += '<div class="info-value">' + docType + '</div>';
+                      html += '</div>';
+
+                      if (peopleConnections.length > 0) {
+                          html += '<div class="info-item">';
+                          html += '<div class="info-label">People Mentioned (' + peopleConnections.length + ')</div>';
+                          html += '<div class="info-connections">';
+                          peopleConnections.forEach(function(person) {
+                              html += '<div class="connection-badge">👤 ' + person + '</div>';
+                          });
+                          html += '</div>';
+                          html += '</div>';
+                      }
+                  }
+
+                  body.innerHTML = html;
+                  panel.style.display = 'block';
+              }
+
+              function closeInfoPanel() {
+                  document.getElementById('infoPanel').style.display = 'none';
+              }
+
               drawGraph();
         </script>
     
@@ -134,26 +742,54 @@
             var clickedNode = params.nodes[0];
             var nodeData = nodes.get(clickedNode);
 
+            // Show node info in panel
+            showNodeInfo(clickedNode);
+
             // Check if clicked node is a person
             if (nodeData.id.startsWith('PERSON:')) {
                 if (selectedPerson === clickedNode) {
                     // If same person clicked, show all nodes
                     showAllNodes();
                     selectedPerson = null;
+                    document.getElementById('filterStatus').innerHTML = '<span>Showing all nodes</span>';
                 } else {
                     // Show only this person and their connected documents
                     showPersonOnly(clickedNode);
                     selectedPerson = clickedNode;
+                    document.getElementById('filterStatus').innerHTML = '<span>Filtered to: ' + nodeData.label + '</span>';
                 }
             }
         } else {
-            // Clicked on empty space, show all
-            showAllNodes();
-            selectedPerson = null;
+            // Clicked on empty space - only close info panel if currently filtered
+            closeInfoPanel();
+
+            // Only reset view if we're currently filtered to a specific person
+            if (selectedPerson !== null) {
+                showAllNodes();
+                selectedPerson = null;
+                document.getElementById('filterStatus').innerHTML = '<span>Showing all nodes</span>';
+            }
+        }
+    });
+
+    network.on("hoverNode", function(params) {
+        document.body.style.cursor = 'pointer';
+    });
+
+    network.on("blurNode", function(params) {
+        document.body.style.cursor = 'default';
+    });
+
+    // Search box listener
+    document.getElementById('searchBox').addEventListener('keyup', function(e) {
+        if (e.key === 'Enter') {
+            applyFilter();
         }
     });
 
     function showPersonOnly(personId) {
+        showLoading();
+
         var connectedNodes = [personId];
         var connectedEdges = [];
 
@@ -174,33 +810,115 @@
             return connectedNodes.indexOf(node.id) !== -1;
         });
 
-        // Update the network without animation
+        // Enable hierarchical layout for better spacing when few nodes
+        if (filteredNodes.length < 50) {
+            network.setOptions({
+                layout: {
+                    hierarchical: {
+                        enabled: true,
+                        direction: 'UD',
+                        sortMethod: 'directed',
+                        nodeSpacing: 200,
+                        levelSeparation: 250,
+                        treeSpacing: 200
+                    }
+                },
+                physics: {
+                    enabled: false
+                }
+            });
+        } else {
+            // Use force-directed for larger graphs
+            network.setOptions({
+                layout: {
+                    hierarchical: {
+                        enabled: false
+                    }
+                },
+                physics: {
+                    enabled: true,
+                    stabilization: {
+                        enabled: true,
+                        iterations: 100
+                    }
+                }
+            });
+        }
+
+        // Update the network
         nodes.clear();
         edges.clear();
         nodes.add(filteredNodes);
         edges.add(connectedEdges);
 
-        // Fit the view without animation
-        try {
-            network.fit({animation:false});
-        } catch (e) {
-            // fallback if fit doesn't accept options
-            network.fit();
-        }
+        // Wait for layout to stabilize, then fit
+        setTimeout(function() {
+            network.fit({
+                animation: {
+                    duration: 800,
+                    easingFunction: 'easeInOutQuad'
+                },
+                padding: 100
+            });
+            hideLoading();
+        }, 300);
 
+        updateStats();
         console.log("Showing person: " + personId + " with " + connectedNodes.length + " nodes");
     }
 
     function showAllNodes() {
+        showLoading();
+
+        // Check if we're already showing all nodes
+        var currentNodes = nodes.get();
+        if (currentNodes.length === allNodes.length) {
+            hideLoading();
+            return;
+        }
+
+        // Reset to normal layout
+        network.setOptions({
+            layout: {
+                hierarchical: {
+                    enabled: false
+                }
+            },
+            physics: {
+                enabled: true,
+                barnesHut: {
+                    gravitationalConstant: -30000,
+                    centralGravity: 0.3,
+                    springLength: 150,
+                    springConstant: 0.04,
+                    damping: 0.09,
+                    avoidOverlap: 0.5
+                },
+                stabilization: {
+                    enabled: true,
+                    iterations: 100
+                }
+            }
+        });
+
         nodes.clear();
         edges.clear();
         nodes.add(allNodes);
         edges.add(allEdges);
-        try {
-            network.fit({animation:false});
-        } catch (e) {
-            network.fit();
-        }
+
+        // Shorter delay and less aggressive fit
+        setTimeout(function() {
+            network.fit({
+                animation: {
+                    duration: 600,
+                    easingFunction: 'easeInOutQuad'
+                },
+                padding: 50
+            });
+            hideLoading();
+        }, 200);
+
+        updateStats();
         console.log("Showing all nodes");
     }
     </script>

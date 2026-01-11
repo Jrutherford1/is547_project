@@ -15,7 +15,27 @@ This project contains a workflow and documentation for managing around 2,200 dig
 - Jupyter Notebook: Contains the code used for data processing and analysis.
 - /data: Contains the original and processed data files and csv files containing metadata.
 - /data_pipline: Contains the code used for data processing and analysis.
+- **knowledge_graph_explorer.html**: Interactive visualization of people-document relationships extracted from committee records.
 - Other documentation: Contains the project requirements and other documents, including this README file and requirements.
+
+# Knowledge Graph Explorer
+
+An interactive visualization tool that maps relationships between people and documents in the committee archive. Built using NLP extraction and network visualization.
+
+**Quick Start**: Open `knowledge_graph_explorer.html` in your browser to explore the data.
+
+**Documentation**:
+- **[QUICK_START_GUIDE.md](QUICK_START_GUIDE.md)** - How to use the visualization (start here!)
+- **[PRESENTATION_GUIDE.md](PRESENTATION_GUIDE.md)** - Tips for presenting to stakeholders
+- **[VISUALIZATION_IMPROVEMENTS.md](VISUALIZATION_IMPROVEMENTS.md)** - Technical details of improvements made
+- **[NODE_SPACING_FIX.md](NODE_SPACING_FIX.md)** - How the layout algorithm works
+
+**Features**:
+- 🔍 Search for specific people or documents
+- 🎯 Click any person to see their document connections
+- 📊 Real-time statistics and filtering
+- 🎨 Clean, professional visualization
+- 💾 No server required - runs entirely in browser
 
 # Workflow
 1. **Data Ingestion**: 
