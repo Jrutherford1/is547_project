@@ -3,6 +3,7 @@
 lib/
 # macOS specific
 .DS_Store
+.xml
 
 data/Committees
 data/Processed_Committees
