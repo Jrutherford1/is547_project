@@ -42,3 +42,38 @@ def list_files(directory, max_files=100):
             if file_count >= max_files:
                 return
 
+
+def clean_ds_store_files(base_dir="data/Processed_Committees"):
+    """
+    Finds and removes any .DS_Store files contaminating the processed committees directory.
+
+    Args:
+        base_dir: Directory to clean (default: "data/Processed_Committees")
+
+    Returns:
+        int: Number of .DS_Store files found and removed
+    """
+    removed_count = 0
+
+    for root, dirs, files in os.walk(base_dir):
+        for file in files:
+            if file == ".DS_Store":
+                ds_store_path = os.path.join(root, file)
+                print(f"Found and removing: {ds_store_path}")
+                try:
+                    os.remove(ds_store_path)
+                    removed_count += 1
+                except OSError as e:
+                    print(f"Error removing {ds_store_path}: {e}")
+
+    if removed_count == 0:
+        print("✅ No .DS_Store files found - directory is clean!")
+    else:
+        print(f"🧹 Removed {removed_count} .DS_Store file(s)")
+
+    return removed_count
+
+
+# Run the cleanup
+if __name__ == "__main__":
+    clean_ds_store_files()
