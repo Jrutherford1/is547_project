@@ -1,0 +1,200 @@
+{
+  "timestamp": "2026-01-11T09:07:23.882444",
+  "processing_time_seconds": 1.031882,
+  "summary": {
+    "total_documents": 10,
+    "successful_extractions": 10,
+    "failed_extractions": 0,
+    "low_quality_documents": 0,
+    "avg_text_quality_score": 0.934
+  },
+  "entity_stats": {
+    "PERSON": {
+      "total_extracted": 171,
+      "total_rejected": 60,
+      "total_kept": 111,
+      "rejection_rate": 0.3508771929824561
+    },
+    "ORG": {
+      "total_extracted": 93,
+      "total_rejected": 0,
+      "total_kept": 93,
+      "rejection_rate": 0.0
+    },
+    "GPE": {
+      "total_extracted": 4,
+      "total_rejected": 0,
+      "total_kept": 4,
+      "rejection_rate": 0.0
+    },
+    "DATE": {
+      "total_extracted": 62,
+      "total_rejected": 2,
+      "total_kept": 60,
+      "rejection_rate": 0.03225806451612903
+    }
+  },
+  "top_rejected_entities": {
+    "PERSON": [
+      {
+        "entity": "Library Building",
+        "count": 9
+      },
+      {
+        "entity": "Box",
+        "count": 6
+      },
+      {
+        "entity": "Aeon",
+        "count": 5
+      },
+      {
+        "entity": "Lynne Thomas Absent",
+        "count": 4
+      },
+      {
+        "entity": "cubic feet",
+        "count": 4
+      },
+      {
+        "entity": "Library",
+        "count": 3
+      },
+      {
+        "entity": "Maps",
+        "count": 2
+      },
+      {
+        "entity": "John’s",
+        "count": 2
+      },
+      {
+        "entity": "Alma",
+        "count": 2
+      },
+      {
+        "entity": "Tom - I",
+        "count": 2
+      },
+      {
+        "entity": "Joanne Kaczmarek Note",
+        "count": 1
+      },
+      {
+        "entity": "Krannert",
+        "count": 1
+      },
+      {
+        "entity": "Training",
+        "count": 1
+      },
+      {
+        "entity": "Archon",
+        "count": 1
+      },
+      {
+        "entity": "Bill – Voyager",
+        "count": 1
+      },
+      {
+        "entity": "Bill – Oak Street",
+        "count": 1
+      },
+      {
+        "entity": "Info",
+        "count": 1
+      },
+      {
+        "entity": "Lynne - e",
+        "count": 1
+      },
+      {
+        "entity": "Lynne Thomas Note",
+        "count": 1
+      },
+      {
+        "entity": "Tom - John",
+        "count": 1
+      },
+      {
+        "entity": "Espresso",
+        "count": 1
+      },
+      {
+        "entity": "Tom Teper Absent",
+        "count": 1
+      },
+      {
+        "entity": "Lynne Thomas Guest",
+        "count": 1
+      },
+      {
+        "entity": "Krista Gray Note",
+        "count": 1
+      },
+      {
+        "entity": "Tom - Library",
+        "count": 1
+      },
+      {
+        "entity": "Tom - There",
+        "count": 1
+      },
+      {
+        "entity": "Bill - Whatever",
+        "count": 1
+      },
+      {
+        "entity": "Tom – Kirstin",
+        "count": 1
+      },
+      {
+        "entity": "Lynne Thomas Space",
+        "count": 1
+      },
+      {
+        "entity": "Lynne - We",
+        "count": 1
+      },
+      {
+        "entity": "Tom - The",
+        "count": 1
+      }
+    ],
+    "ORG": [],
+    "GPE": [],
+    "DATE": [
+      {
+        "entity": "4",
+        "count": 1
+      },
+      {
+        "entity": "5",
+        "count": 1
+      }
+    ]
+  },
+  "rejection_reasons": {
+    "PERSON": {
+      "filter_term_exact": 27,
+      "contains_filter_term:library": 10,
+      "pattern: - [A-Z]": 7,
+      "contains_filter_term:absent": 5,
+      "contains_filter_term:note": 3,
+      "not_plausible_name:invalid_chars:{'’'}": 2,
+      "contains_filter_term:voyager": 1,
+      "contains_filter_term:oak street": 1,
+      "not_plausible_name:word_lowercase": 1,
+      "contains_filter_term:guest": 1,
+      "pattern: – [A-Z]": 1,
+      "contains_filter_term:space": 1
+    },
+    "ORG": {},
+    "GPE": {},
+    "DATE": {
+      "too_short": 2
+    }
+  },
+  "document_issues": {},
+  "problematic_documents": []
+}

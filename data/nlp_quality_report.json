@@ -1,0 +1,999 @@
+{
+  "timestamp": "2026-01-11T09:16:58.555686",
+  "processing_time_seconds": 198.723359,
+  "summary": {
+    "total_documents": 2119,
+    "successful_extractions": 2115,
+    "failed_extractions": 4,
+    "low_quality_documents": 347,
+    "avg_text_quality_score": 0.94
+  },
+  "entity_stats": {
+    "PERSON": {
+      "total_extracted": 32430,
+      "total_rejected": 11075,
+      "total_kept": 21355,
+      "rejection_rate": 0.34150477952513103
+    },
+    "ORG": {
+      "total_extracted": 23768,
+      "total_rejected": 12,
+      "total_kept": 23756,
+      "rejection_rate": 0.0005048805116122518
+    },
+    "GPE": {
+      "total_extracted": 2210,
+      "total_rejected": 21,
+      "total_kept": 2189,
+      "rejection_rate": 0.009502262443438913
+    },
+    "DATE": {
+      "total_extracted": 12675,
+      "total_rejected": 19,
+      "total_kept": 12656,
+      "rejection_rate": 0.0014990138067061144
+    }
+  },
+  "top_rejected_entities": {
+    "PERSON": [
+      {
+        "entity": "Library",
+        "count": 3610
+      },
+      {
+        "entity": "LSSC",
+        "count": 636
+      },
+      {
+        "entity": "Dean Wilkin",
+        "count": 568
+      },
+      {
+        "entity": "Dean",
+        "count": 449
+      },
+      {
+        "entity": "Nancy O’Brien",
+        "count": 340
+      },
+      {
+        "entity": "Lynn Wiley",
+        "count": 276
+      },
+      {
+        "entity": "Primo",
+        "count": 212
+      },
+      {
+        "entity": "Librarian",
+        "count": 167
+      },
+      {
+        "entity": "Lynn",
+        "count": 110
+      },
+      {
+        "entity": "Scott Schwartz",
+        "count": 97
+      },
+      {
+        "entity": "Agenda",
+        "count": 96
+      },
+      {
+        "entity": "Box",
+        "count": 93
+      },
+      {
+        "entity": "John Wagstaff",
+        "count": 88
+      },
+      {
+        "entity": "Karen Schmidt",
+        "count": 85
+      },
+      {
+        "entity": "Library 428",
+        "count": 84
+      },
+      {
+        "entity": "Alma",
+        "count": 82
+      },
+      {
+        "entity": "Diane Schmidt",
+        "count": 70
+      },
+      {
+        "entity": "Main Library",
+        "count": 54
+      },
+      {
+        "entity": "I. Agenda",
+        "count": 51
+      },
+      {
+        "entity": "Grainger",
+        "count": 45
+      },
+      {
+        "entity": "chien Yu",
+        "count": 42
+      },
+      {
+        "entity": "Directors",
+        "count": 42
+      },
+      {
+        "entity": "Faculty",
+        "count": 41
+      },
+      {
+        "entity": "Primo VE",
+        "count": 40
+      },
+      {
+        "entity": "Faculty Meeting",
+        "count": 38
+      },
+      {
+        "entity": "Agenda EXECUTIVE COMMITTEE",
+        "count": 33
+      },
+      {
+        "entity": "Aeon",
+        "count": 32
+      },
+      {
+        "entity": "Cherie’ Weible",
+        "count": 31
+      },
+      {
+        "entity": "Library Faculty",
+        "count": 30
+      },
+      {
+        "entity": "Chair",
+        "count": 30
+      },
+      {
+        "entity": "K. Schmidt",
+        "count": 30
+      },
+      {
+        "entity": "Kim Matherly Absent",
+        "count": 28
+      },
+      {
+        "entity": "Library Building",
+        "count": 26
+      },
+      {
+        "entity": "September- Cataloging",
+        "count": 24
+      },
+      {
+        "entity": "December- Cataloging",
+        "count": 24
+      },
+      {
+        "entity": "Preservation",
+        "count": 23
+      },
+      {
+        "entity": "Library Agenda Details Agenda Agenda",
+        "count": 21
+      },
+      {
+        "entity": "Library Dean",
+        "count": 21
+      },
+      {
+        "entity": "Agenda Items",
+        "count": 20
+      },
+      {
+        "entity": "Joshua Lynch",
+        "count": 20
+      },
+      {
+        "entity": "Cindy I.",
+        "count": 20
+      },
+      {
+        "entity": "Associate Dean",
+        "count": 19
+      },
+      {
+        "entity": "Library Specialist",
+        "count": 19
+      },
+      {
+        "entity": "Graduate",
+        "count": 19
+      },
+      {
+        "entity": "Lyn Jones",
+        "count": 19
+      },
+      {
+        "entity": "b.",
+        "count": 18
+      },
+      {
+        "entity": "DoMonique Arnold darnold2@illinois.edu",
+        "count": 18
+      },
+      {
+        "entity": "J. Pilch",
+        "count": 18
+      },
+      {
+        "entity": "Kathryn",
+        "count": 17
+      },
+      {
+        "entity": "Agenda Review Lisa",
+        "count": 16
+      }
+    ],
+    "ORG": [
+      {
+        "entity": "Criterion 1 Working Group Criterion 2 Working Group Criterion 3 Working Group Criterion 4 Working Group Criterion 5 Working Group Federal Compliance Working Group",
+        "count": 2
+      },
+      {
+        "entity": "l",
+        "count": 2
+      },
+      {
+        "entity": "H",
+        "count": 1
+      },
+      {
+        "entity": "Types of Integrations Collections and Resources Library Catalog Library Materials Services Reserves Reference Instruction Mapping Procedure Learn: Identify Courses",
+        "count": 1
+      },
+      {
+        "entity": "~256 GB SSD HDD",
+        "count": 1
+      },
+      {
+        "entity": "L",
+        "count": 1
+      },
+      {
+        "entity": "J1/J2 & B1/B2",
+        "count": 1
+      },
+      {
+        "entity": "4/24 - LSPT",
+        "count": 1
+      },
+      {
+        "entity": "https://www.library.illinois.edu/staff/administration/policies/unit-heads-and-associate-university-librarians-appointments-evaluation-and-administrative-components-of-salary/",
+        "count": 1
+      },
+      {
+        "entity": "Oak St. Criteria C. Google Update D. Collections Subcommittees E. Floating Collections F. Cooperative Collection Development G. Music Special Collections H. Cancelling Split Purchases IX",
+        "count": 1
+      }
+    ],
+    "GPE": [
+      {
+        "entity": "○",
+        "count": 14
+      },
+      {
+        "entity": "1⁄2 %",
+        "count": 2
+      },
+      {
+        "entity": "https://uillinoisedu.sharepoint.com/:w:/s/UniversityLibraryDEIATaskForce/EQ-wNQqd0XVFoo2L0DN_YVIBJVN0W7OAMswJRbGuTp8r2Q?e=BHy7PI",
+        "count": 1
+      },
+      {
+        "entity": "4pm-5pm",
+        "count": 1
+      },
+      {
+        "entity": "~50",
+        "count": 1
+      },
+      {
+        "entity": "L",
+        "count": 1
+      },
+      {
+        "entity": "8/15/2016",
+        "count": 1
+      }
+    ],
+    "DATE": [
+      {
+        "entity": "3",
+        "count": 6
+      },
+      {
+        "entity": "5",
+        "count": 4
+      },
+      {
+        "entity": "4",
+        "count": 3
+      },
+      {
+        "entity": "Tuesday, May 1, 2012 – Wednesday, May 2, 2012",
+        "count": 1
+      },
+      {
+        "entity": "13,4I4 3",
+        "count": 1
+      },
+      {
+        "entity": "May, July, August, September",
+        "count": 1
+      },
+      {
+        "entity": "Monday, August 2, 2017,",
+        "count": 1
+      },
+      {
+        "entity": "September 25, October 23, November 27, December 11",
+        "count": 1
+      },
+      {
+        "entity": "September, November, January, March, May",
+        "count": 1
+      }
+    ]
+  },
+  "rejection_reasons": {
+    "PERSON": {
+      "filter_term_exact": 5067,
+      "not_plausible_name:low_vowel_ratio": 1552,
+      "contains_filter_term:dean": 682,
+      "not_plausible_name:invalid_chars:{'’'}": 603,
+      "contains_filter_term:library": 456,
+      "pattern:^[a-z]": 335,
+      "pattern:\\W$": 177,
+      "contains_filter_term:absent": 145,
+      "not_plausible_name:overall_low_vowel_ratio": 116,
+      "contains_filter_term:librarian": 102,
+      "contains_filter_term:staff": 101,
+      "contains_filter_term:faculty": 100,
+      "contains_filter_term:agenda": 97,
+      "pattern:^\\W": 95,
+      "contains_filter_term:minutes": 88,
+      "contains_filter_term:primo": 74,
+      "contains_filter_term:review": 64,
+      "contains_filter_term:illinois": 63,
+      "contains_filter_term:chair": 59,
+      "contains_filter_term:committee": 55
+    },
+    "ORG": {
+      "too_long": 5,
+      "too_short": 4,
+      "low_vowel_ratio": 3
+    },
+    "GPE": {
+      "too_short": 15,
+      "starts_with_number_or_symbol": 5,
+      "too_long": 1
+    },
+    "DATE": {
+      "too_short": 13,
+      "too_many_commas": 5,
+      "ocr_garbage_pattern": 1
+    }
+  },
+  "document_issues": {
+    "very_low_dictionary_words": 4,
+    "high_repetition": 2,
+    "low_vowel_ratio": 1,
+    "very_short_words": 1,
+    "high_digit_ratio": 1
+  },
+  "problematic_documents": [
+    {
+      "path": "data/Processed_Committees/Content Access Policy & Technology (CAPT)/Minutes/Content Access Policy & Technology (CAPT)_Minutes_2017-07-27.pdf",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Content Access Policy & Technology (CAPT)/Minutes/Content Access Policy & Technology (CAPT)_Minutes_2018-03-29.pdf",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Content Access Policy & Technology (CAPT)/Minutes/Content Access Policy & Technology (CAPT)_Minutes_2018-01-15.pdf",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Content Access Policy & Technology (CAPT)/Minutes/Content Access Policy & Technology (CAPT)_Minutes_2018-07-26.pdf",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Content Access Policy & Technology (CAPT)/Minutes/Content Access Policy & Technology (CAPT)_Minutes_2017-01-26.pdf",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Content Access Policy & Technology (CAPT)/Minutes/Content Access Policy & Technology (CAPT)_Minutes_2016-05-31.pdf",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Diversity, Equity, Inclusion, and Accessibility (DEIA) Task Force/Minutes/Diversity, Equity, Inclusion, and Accessibility (DEIA) Task Force_Minutes_unknown_LCD-Retreat-Small-Group-Reflection.pdf",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Library Faculty Meeting/Minutes/Library Faculty Meeting_Minutes_2018-04-11_1.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Library Faculty Meeting/Agendas/Library Faculty Meeting_Agendas_2018-04-11_1.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Social Media Working Group/Related Documents/Downs-Presentation2.pptx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Diversity Committee/Agendas/Diversity Committee_Agendas_2018-09-11.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Diversity Committee/Agendas/Diversity Committee_Agendas_2015-11-10.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Diversity Committee/Agendas/Diversity Committee_Agendas_2018-05-08.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Diversity Committee/Agendas/Diversity Committee_Agendas_2019-03-12.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Diversity Committee/Agendas/Diversity Committee_Agendas_2016-08-09.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Diversity Committee/Agendas/Diversity Committee_Agendas_2019-06-11.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Diversity Committee/Agendas/Diversity Committee_Agendas_2016-01-12.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Diversity Committee/Agendas/Diversity Committee_Agendas_2016-09-13.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Diversity Committee/Agendas/Diversity Committee_Agendas_2015-04-12.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Diversity Committee/Agendas/Diversity Committee_Agendas_2016-11-08.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Diversity Committee/Agendas/Diversity Committee_Agendas_2016-12-13.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Diversity Committee/Agendas/Diversity Committee_Agendas_2018-06-12.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Diversity Committee/Agendas/Diversity Committee_Agendas_2016-02-09.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Diversity Committee/Agendas/Diversity Committee_Agendas_2016-03-08.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Diversity Committee/Agendas/Diversity Committee_Agendas_2017-05-09.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Diversity Committee/Agendas/Diversity Committee_Agendas_2017-10-10.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Diversity Committee/Agendas/Diversity Committee_Agendas_2018-12-11.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Diversity Committee/Agendas/Diversity Committee_Agendas_2017-04-11.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Diversity Committee/Agendas/Diversity Committee_Agendas_2018-02-12.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Diversity Committee/Agendas/Diversity Committee_Agendas_2015-12-08.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Diversity Committee/Agendas/Diversity Committee_Agendas_2016-07-12.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Diversity Committee/Agendas/Diversity Committee_Agendas_2018-03-13.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Diversity Committee/Agendas/Diversity Committee_Agendas_2017-02-14.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Diversity Committee/Agendas/Diversity Committee_Agendas_2019-04-09.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Diversity Committee/Agendas/Diversity Committee_Agendas_2017-09-12.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Diversity Committee/Agendas/Diversity Committee_Agendas_2017-03-14.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Diversity Committee/Agendas/Diversity Committee_Agendas_2018-02-13.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Diversity Committee/Agendas/Diversity Committee_Agendas_2015-05-10.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Diversity Committee/Agendas/Diversity Committee_Agendas_2015-10-13.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Diversity Committee/Agendas/Diversity Committee_Agendas_2018-10-09.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Diversity Committee/Agendas/Diversity Committee_Agendas_2017-07-11.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Diversity Committee/Agendas/Diversity Committee_Agendas_2017-12-12.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Diversity Committee/Agendas/Diversity Committee_Agendas_2017-11-14.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Diversity Committee/Agendas/Diversity Committee_Agendas_2017-01-14.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Diversity Committee/Agendas/Diversity Committee_Agendas_2018-04-10.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Diversity Committee/Agendas/Diversity Committee_Agendas_2016-10-11.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Diversity Committee/Agendas/Diversity Committee_Agendas_2018-11-13.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Diversity Committee/Agendas/Diversity Committee_Agendas_2015-09-08.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Diversity Committee/Agendas/Diversity Committee_Agendas_2018-01-09.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Administrative Council/Related Documents/StudentWageSurvey-AC-2-16-15.pptx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Administrative Council/Related Documents/DeskTrackerGuide.pdf",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Library Assessment Committee/Agendas/Library Assessment Committee_Agendas_2017-10-11.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Library Assessment Committee/Agendas/Library Assessment Committee_Agendas_2019-11-13.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Library Assessment Committee/Agendas/Library Assessment Committee_Agendas_2016-09-14.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Library Assessment Committee/Agendas/Library Assessment Committee_Agendas_2019-01-09.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Library Assessment Committee/Agendas/Library Assessment Committee_Agendas_2016-12-09.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Library Assessment Committee/Agendas/Library Assessment Committee_Agendas_2015-03-11.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Library Assessment Committee/Agendas/Library Assessment Committee_Agendas_2016-03-09.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Library Assessment Committee/Agendas/Library Assessment Committee_Agendas_2016-10-12.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Library Assessment Committee/Agendas/Library Assessment Committee_Agendas_2018-10-10.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Library Assessment Committee/Agendas/Library Assessment Committee_Agendas_2017-02-08.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Library Assessment Committee/Agendas/Library Assessment Committee_Agendas_2015-09-09.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Library Assessment Committee/Agendas/Library Assessment Committee_Agendas_2018-04-11.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Library Assessment Committee/Agendas/Library Assessment Committee_Agendas_2017-12-13.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Library Assessment Committee/Agendas/Library Assessment Committee_Agendas_2017-03-08.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Library Assessment Committee/Agendas/Library Assessment Committee_Agendas_2018-09-12.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Library Assessment Committee/Agendas/Library Assessment Committee_Agendas_2019-10-10.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Library Assessment Committee/Agendas/Library Assessment Committee_Agendas_2019-11-07.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Library Assessment Committee/Agendas/Library Assessment Committee_Agendas_2015-01-14.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Library Assessment Committee/Agendas/Library Assessment Committee_Agendas_2018-02-08.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Library Assessment Committee/Agendas/Library Assessment Committee_Agendas_2019-05-08.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Library Assessment Committee/Agendas/Library Assessment Committee_Agendas_2015-10-14.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Library Assessment Committee/Agendas/Library Assessment Committee_Agendas_2017-11-09.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Library Assessment Committee/Agendas/Library Assessment Committee_Agendas_2019-09-11.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Library Assessment Committee/Agendas/Library Assessment Committee_Agendas_2016-02-10.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Executive Committee/Agendas/Executive Committee_Agendas_2018-10-22.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Executive Committee/Agendas/Executive Committee_Agendas_2022-03-28.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Executive Committee/Agendas/Executive Committee_Agendas_2014-06-02.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Executive Committee/Agendas/Executive Committee_Agendas_2014-01-10.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Executive Committee/Agendas/Executive Committee_Agendas_2013-04-22.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Executive Committee/Agendas/Executive Committee_Agendas_2015-07-06.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Executive Committee/Agendas/Executive Committee_Agendas_2015-04-16.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Executive Committee/Agendas/Executive Committee_Agendas_2020-09-28.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Executive Committee/Agendas/Executive Committee_Agendas_2012-09-05.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Executive Committee/Agendas/Executive Committee_Agendas_2020-11-09.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Executive Committee/Agendas/Executive Committee_Agendas_2013-07-08.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Executive Committee/Agendas/Executive Committee_Agendas_2017-01-09.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Executive Committee/Agendas/Executive Committee_Agendas_2015-02-09.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Executive Committee/Agendas/Executive Committee_Agendas_2016-03-07.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Executive Committee/Agendas/Executive Committee_Agendas_2017-04-10.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Executive Committee/Agendas/Executive Committee_Agendas_2013-02-11.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Executive Committee/Agendas/Executive Committee_Agendas_2012-11-12.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Executive Committee/Agendas/Executive Committee_Agendas_2017-03-14.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Executive Committee/Agendas/Executive Committee_Agendas_2014-10-27.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Executive Committee/Agendas/Executive Committee_Agendas_2020-03-02.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Executive Committee/Agendas/Executive Committee_Agendas_2018-06-11.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Executive Committee/Agendas/Executive Committee_Agendas_2021-06-28.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Executive Committee/Agendas/Executive Committee_Agendas_2020-10-12.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Executive Committee/Agendas/Executive Committee_Agendas_2020-04-06.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    },
+    {
+      "path": "data/Processed_Committees/Executive Committee/Agendas/Executive Committee_Agendas_2020-01-13.docx",
+      "quality_score": 0.0,
+      "text_length": 0,
+      "issues": []
+    }
+  ]
+}
