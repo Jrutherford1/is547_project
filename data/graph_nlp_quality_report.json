@@ -1,0 +1,736 @@
+{
+  "timestamp": "2026-01-26T11:04:00.755401",
+  "processing_time_seconds": 145.241154,
+  "summary": {
+    "total_documents": 0,
+    "successful_extractions": 0,
+    "failed_extractions": 0,
+    "low_quality_documents": 0,
+    "avg_text_quality_score": 0
+  },
+  "entity_stats": {
+    "PERSON": {
+      "total_extracted": 31094,
+      "total_rejected": 17438,
+      "total_kept": 13656,
+      "rejection_rate": 0.5608155914324306
+    },
+    "ORG": {
+      "total_extracted": 22429,
+      "total_rejected": 14246,
+      "total_kept": 8183,
+      "rejection_rate": 0.6351598377101074
+    },
+    "GPE": {
+      "total_extracted": 1942,
+      "total_rejected": 1033,
+      "total_kept": 909,
+      "rejection_rate": 0.5319258496395468
+    },
+    "DATE": {
+      "total_extracted": 9592,
+      "total_rejected": 17,
+      "total_kept": 9575,
+      "rejection_rate": 0.0017723102585487907
+    }
+  },
+  "top_rejected_entities": {
+    "PERSON": [
+      {
+        "entity": "Library",
+        "count": 2253
+      },
+      {
+        "entity": "John",
+        "count": 827
+      },
+      {
+        "entity": "LSSC",
+        "count": 576
+      },
+      {
+        "entity": "Tom",
+        "count": 512
+      },
+      {
+        "entity": "Dean Wilkin",
+        "count": 506
+      },
+      {
+        "entity": "Lisa",
+        "count": 442
+      },
+      {
+        "entity": "Nancy O’Brien",
+        "count": 324
+      },
+      {
+        "entity": "Dean",
+        "count": 323
+      },
+      {
+        "entity": "Susan",
+        "count": 289
+      },
+      {
+        "entity": "Paula",
+        "count": 288
+      },
+      {
+        "entity": "Chris",
+        "count": 239
+      },
+      {
+        "entity": "Beth",
+        "count": 239
+      },
+      {
+        "entity": "Bill",
+        "count": 235
+      },
+      {
+        "entity": "Cindy",
+        "count": 233
+      },
+      {
+        "entity": "Lynn Wiley",
+        "count": 204
+      },
+      {
+        "entity": "Karen",
+        "count": 201
+      },
+      {
+        "entity": "Clara",
+        "count": 180
+      },
+      {
+        "entity": "Jen",
+        "count": 174
+      },
+      {
+        "entity": "Sue",
+        "count": 173
+      },
+      {
+        "entity": "Primo",
+        "count": 163
+      },
+      {
+        "entity": "Jessica",
+        "count": 155
+      },
+      {
+        "entity": "Lynne",
+        "count": 128
+      },
+      {
+        "entity": "Sarah",
+        "count": 128
+      },
+      {
+        "entity": "Joe",
+        "count": 125
+      },
+      {
+        "entity": "David",
+        "count": 120
+      },
+      {
+        "entity": "Lori",
+        "count": 117
+      },
+      {
+        "entity": "Zoe",
+        "count": 116
+      },
+      {
+        "entity": "Jim",
+        "count": 115
+      },
+      {
+        "entity": "Librarian",
+        "count": 109
+      },
+      {
+        "entity": "Victor",
+        "count": 105
+      },
+      {
+        "entity": "Scott Schwartz",
+        "count": 90
+      },
+      {
+        "entity": "Mary",
+        "count": 89
+      },
+      {
+        "entity": "John Wagstaff",
+        "count": 86
+      },
+      {
+        "entity": "Library 428",
+        "count": 84
+      },
+      {
+        "entity": "Erik",
+        "count": 83
+      },
+      {
+        "entity": "Karen Schmidt",
+        "count": 82
+      },
+      {
+        "entity": "Wendy",
+        "count": 80
+      },
+      {
+        "entity": "Box",
+        "count": 79
+      },
+      {
+        "entity": "Agenda",
+        "count": 79
+      },
+      {
+        "entity": "JoAnn",
+        "count": 73
+      },
+      {
+        "entity": "Greg",
+        "count": 72
+      },
+      {
+        "entity": "Lynn",
+        "count": 66
+      },
+      {
+        "entity": "Diane Schmidt",
+        "count": 66
+      },
+      {
+        "entity": "LCAP",
+        "count": 65
+      },
+      {
+        "entity": "Joanne",
+        "count": 64
+      },
+      {
+        "entity": "Alma",
+        "count": 64
+      },
+      {
+        "entity": "Spencer",
+        "count": 64
+      },
+      {
+        "entity": "Nancy",
+        "count": 62
+      },
+      {
+        "entity": "Michael",
+        "count": 56
+      },
+      {
+        "entity": "Jeff",
+        "count": 52
+      }
+    ],
+    "ORG": [
+      {
+        "entity": "EC",
+        "count": 3127
+      },
+      {
+        "entity": "AP",
+        "count": 439
+      },
+      {
+        "entity": "AC",
+        "count": 349
+      },
+      {
+        "entity": "CDC",
+        "count": 247
+      },
+      {
+        "entity": "Committee",
+        "count": 202
+      },
+      {
+        "entity": "AUL",
+        "count": 177
+      },
+      {
+        "entity": "UGL",
+        "count": 170
+      },
+      {
+        "entity": "University",
+        "count": 140
+      },
+      {
+        "entity": "Attendees",
+        "count": 140
+      },
+      {
+        "entity": "ALA",
+        "count": 130
+      },
+      {
+        "entity": "CIC",
+        "count": 118
+      },
+      {
+        "entity": "the Collection Development Committee",
+        "count": 111
+      },
+      {
+        "entity": "DEIA",
+        "count": 109
+      },
+      {
+        "entity": "L-CAP",
+        "count": 101
+      },
+      {
+        "entity": "CMS",
+        "count": 98
+      },
+      {
+        "entity": "University Libraries,",
+        "count": 98
+      },
+      {
+        "entity": "the Executive Committee",
+        "count": 94
+      },
+      {
+        "entity": "TF",
+        "count": 93
+      },
+      {
+        "entity": "LibGuides",
+        "count": 89
+      },
+      {
+        "entity": "ARL",
+        "count": 87
+      },
+      {
+        "entity": "UIUC",
+        "count": 86
+      },
+      {
+        "entity": "Divisions",
+        "count": 83
+      },
+      {
+        "entity": "Division",
+        "count": 79
+      },
+      {
+        "entity": "Kirstin Dougan",
+        "count": 74
+      },
+      {
+        "entity": "GA",
+        "count": 72
+      },
+      {
+        "entity": "CITES",
+        "count": 69
+      },
+      {
+        "entity": "Kirstin",
+        "count": 69
+      },
+      {
+        "entity": "the Diversity Committee",
+        "count": 62
+      },
+      {
+        "entity": "CAP",
+        "count": 62
+      },
+      {
+        "entity": "the Mortenson Center",
+        "count": 60
+      },
+      {
+        "entity": "LibNews",
+        "count": 60
+      },
+      {
+        "entity": "LCP",
+        "count": 59
+      },
+      {
+        "entity": "NSM",
+        "count": 58
+      },
+      {
+        "entity": "Zoe",
+        "count": 57
+      },
+      {
+        "entity": "the User Education Committee",
+        "count": 55
+      },
+      {
+        "entity": "Scott",
+        "count": 54
+      },
+      {
+        "entity": "Cherié Weible",
+        "count": 53
+      },
+      {
+        "entity": "LibGuide",
+        "count": 51
+      },
+      {
+        "entity": "Senate",
+        "count": 50
+      },
+      {
+        "entity": "Budget",
+        "count": 50
+      },
+      {
+        "entity": "RPC",
+        "count": 50
+      },
+      {
+        "entity": "Google",
+        "count": 49
+      },
+      {
+        "entity": "the University Librarian",
+        "count": 48
+      },
+      {
+        "entity": "WordPress",
+        "count": 47
+      },
+      {
+        "entity": "BTAA",
+        "count": 47
+      },
+      {
+        "entity": "PowerPoint",
+        "count": 46
+      },
+      {
+        "entity": "LCAP",
+        "count": 44
+      },
+      {
+        "entity": "SFX",
+        "count": 43
+      },
+      {
+        "entity": "Administrative Council Time and Location of Meeting",
+        "count": 43
+      },
+      {
+        "entity": "the Scholarly Commons",
+        "count": 42
+      }
+    ],
+    "GPE": [
+      {
+        "entity": "PRC",
+        "count": 127
+      },
+      {
+        "entity": "Merinda",
+        "count": 125
+      },
+      {
+        "entity": "US",
+        "count": 42
+      },
+      {
+        "entity": "Cindy",
+        "count": 34
+      },
+      {
+        "entity": "Atoma Batoma",
+        "count": 33
+      },
+      {
+        "entity": "NS Corridor",
+        "count": 28
+      },
+      {
+        "entity": "Oak St.",
+        "count": 26
+      },
+      {
+        "entity": "Primo",
+        "count": 23
+      },
+      {
+        "entity": "Ariana",
+        "count": 22
+      },
+      {
+        "entity": "Libraries",
+        "count": 21
+      },
+      {
+        "entity": "n’t",
+        "count": 21
+      },
+      {
+        "entity": "Esra Coskun",
+        "count": 19
+      },
+      {
+        "entity": "Lucretia",
+        "count": 19
+      },
+      {
+        "entity": "Oak Street",
+        "count": 17
+      },
+      {
+        "entity": "Costa Rica",
+        "count": 17
+      },
+      {
+        "entity": "NS",
+        "count": 16
+      },
+      {
+        "entity": "Rebecca",
+        "count": 14
+      },
+      {
+        "entity": "Qiang",
+        "count": 13
+      },
+      {
+        "entity": "Ideas",
+        "count": 12
+      },
+      {
+        "entity": "○",
+        "count": 12
+      },
+      {
+        "entity": "OA",
+        "count": 12
+      },
+      {
+        "entity": "UC",
+        "count": 11
+      },
+      {
+        "entity": "DC",
+        "count": 11
+      },
+      {
+        "entity": "Becky",
+        "count": 11
+      },
+      {
+        "entity": "Camtasia",
+        "count": 11
+      },
+      {
+        "entity": "Shuyong Jiang",
+        "count": 10
+      },
+      {
+        "entity": "Archon",
+        "count": 9
+      },
+      {
+        "entity": "Box",
+        "count": 9
+      },
+      {
+        "entity": "Jameatris",
+        "count": 9
+      },
+      {
+        "entity": "Jameatris Rimkus",
+        "count": 8
+      },
+      {
+        "entity": "Inclusion",
+        "count": 8
+      },
+      {
+        "entity": "the Mortenson Center",
+        "count": 8
+      },
+      {
+        "entity": "Library 428",
+        "count": 8
+      },
+      {
+        "entity": "Virginia",
+        "count": 7
+      },
+      {
+        "entity": "Unit Heads",
+        "count": 7
+      },
+      {
+        "entity": "New Business",
+        "count": 7
+      },
+      {
+        "entity": "Main",
+        "count": 7
+      },
+      {
+        "entity": "Laila",
+        "count": 7
+      },
+      {
+        "entity": "Lauren",
+        "count": 6
+      },
+      {
+        "entity": "Systems",
+        "count": 6
+      },
+      {
+        "entity": "IU",
+        "count": 6
+      },
+      {
+        "entity": "Mortenson Center",
+        "count": 6
+      },
+      {
+        "entity": "D. Ward",
+        "count": 6
+      },
+      {
+        "entity": "Mara",
+        "count": 5
+      },
+      {
+        "entity": "MPAL",
+        "count": 5
+      },
+      {
+        "entity": "Rm",
+        "count": 5
+      },
+      {
+        "entity": "UG",
+        "count": 5
+      },
+      {
+        "entity": "Provost",
+        "count": 5
+      },
+      {
+        "entity": "Requesting",
+        "count": 5
+      },
+      {
+        "entity": "Sierra Leone",
+        "count": 5
+      }
+    ],
+    "DATE": [
+      {
+        "entity": "3",
+        "count": 6
+      },
+      {
+        "entity": "5",
+        "count": 4
+      },
+      {
+        "entity": "4",
+        "count": 2
+      },
+      {
+        "entity": "Tuesday, May 1, 2012 – Wednesday, May 2, 2012",
+        "count": 1
+      },
+      {
+        "entity": "May, July, August, September",
+        "count": 1
+      },
+      {
+        "entity": "Monday, August 2, 2017,",
+        "count": 1
+      },
+      {
+        "entity": "September 25, October 23, November 27, December 11",
+        "count": 1
+      },
+      {
+        "entity": "September, November, January, March, May",
+        "count": 1
+      }
+    ]
+  },
+  "rejection_reasons": {
+    "PERSON": {
+      "single_word_name": 5225,
+      "additional_filter": 4204,
+      "filter_term_exact": 3326,
+      "not_plausible_name:low_vowel_ratio": 1312,
+      "contains_filter_term:dean": 587,
+      "not_plausible_name:invalid_chars:{'’'}": 557,
+      "contains_filter_term:library": 329,
+      "pattern:^[a-z]": 261,
+      "pattern:\\W$": 148,
+      "contains_filter_term:absent": 145,
+      "contains_filter_term:staff": 106,
+      "not_plausible_name:overall_low_vowel_ratio": 100,
+      "contains_filter_term:librarian": 93,
+      "contains_filter_term:minutes": 85,
+      "contains_filter_term:agenda": 78,
+      "contains_filter_term:faculty": 65,
+      "contains_filter_term:primo": 62,
+      "contains_filter_term:director": 46,
+      "contains_filter_term:review": 44,
+      "contains_filter_term:chair": 42
+    },
+    "ORG": {
+      "org_filter_term": 7043,
+      "starts_with_the": 3630,
+      "short_acronym": 2661,
+      "single_first_name": 269,
+      "too_many_words": 182,
+      "meeting_artifact": 126,
+      "looks_like_person_name": 114,
+      "ends_with_comma": 114,
+      "unbalanced_parens": 101,
+      "too_short": 3,
+      "too_long": 2,
+      "low_vowel_ratio": 1
+    },
+    "GPE": {
+      "gpe_filter_term": 579,
+      "too_short": 179,
+      "two_word_name_pattern": 109,
+      "looks_like_person_name": 53,
+      "looks_like_first_name": 42,
+      "contraction_artifact": 21,
+      "not_a_location": 21,
+      "starts_with_the": 17,
+      "contains_numbers": 8,
+      "starts_with_number_or_symbol": 3,
+      "too_long": 1
+    },
+    "DATE": {
+      "too_short": 12,
+      "too_many_commas": 5
+    }
+  },
+  "document_issues": {},
+  "problematic_documents": []
+}

@@ -4,18 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="808c41b2-d989-40ec-acd2-cc56c8e47cf0" name="Changes" comment="adding more files">
+    <list default="true" id="808c41b2-d989-40ec-acd2-cc56c8e47cf0" name="Changes" comment="cleaning up the data for graph, added more claude documentation and all">
+      <change afterPath="$PROJECT_DIR$/data/graph_nlp_quality_report.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/sessions/session-2026-01-11-1720.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/sessions/session-2026-01-26-entity-cleanup.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CLAUDE.md" beforeDir="false" afterPath="$PROJECT_DIR$/CLAUDE.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/neo4j_export/csv/doc_mentions_location.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/neo4j_export/csv/doc_mentions_location.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/neo4j_export/csv/doc_mentions_org.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/neo4j_export/csv/doc_mentions_org.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/neo4j_export/csv/doc_mentions_person.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/neo4j_export/csv/doc_mentions_person.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/neo4j_export/csv/locations.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/neo4j_export/csv/locations.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/neo4j_export/csv/organizations.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/neo4j_export/csv/organizations.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/neo4j_export/csv/person_coappears.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/neo4j_export/csv/person_coappears.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/neo4j_export/csv/persons.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/neo4j_export/csv/persons.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/neo4j_export/neo4j_import.cypher" beforeDir="false" afterPath="$PROJECT_DIR$/data/neo4j_export/neo4j_import.cypher" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_pipeline/add_nlp_terms_to_metadata.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_pipeline/add_nlp_terms_to_metadata.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/is547_project.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/is547_project.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -292,7 +285,7 @@
       <workItem from="1768767904247" duration="642000" />
       <workItem from="1768827264412" duration="1368000" />
       <workItem from="1768828650583" duration="32000" />
-      <workItem from="1769289819509" duration="9407000" />
+      <workItem from="1769289819509" duration="11926000" />
     </task>
     <task id="LOCAL-00001" summary="starting basic processing and setup">
       <option name="closed" value="true" />
@@ -622,14 +615,48 @@
       <option name="project" value="LOCAL" />
       <updated>1768142258792</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="cleaning up the data for graph, added more claude documentation and all">
+      <option name="closed" value="true" />
+      <created>1769444811707</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1769444811708</updated>
+    </task>
+    <task id="LOCAL-00043" summary="cleaning up the data for graph, added more claude documentation and all">
+      <option name="closed" value="true" />
+      <created>1769444846474</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1769444846474</updated>
+    </task>
+    <task id="LOCAL-00044" summary="cleaning up the data for graph, added more claude documentation and all">
+      <option name="closed" value="true" />
+      <created>1769444881319</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1769444881319</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="documentation, found errors" />
     <MESSAGE value="attempted to find and resolve errors, not sure why 381 files are not renamed.  There is a file for each original.  I'm thinking these are the ones I manually updated dates for???" />
     <MESSAGE value="I found the error, it was 311 files, Related Docs don't get renamed!  Eliminated one function" />
     <MESSAGE value="update some documentation, updated README.md" />
@@ -654,7 +681,8 @@
     <MESSAGE value="update gitignore" />
     <MESSAGE value="very first version of export to neo4j, lots of data cleaning needs to be done, remodeling, something....." />
     <MESSAGE value="adding more files" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding more files" />
+    <MESSAGE value="cleaning up the data for graph, added more claude documentation and all" />
+    <option name="LAST_COMMIT_MESSAGE" value="cleaning up the data for graph, added more claude documentation and all" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
