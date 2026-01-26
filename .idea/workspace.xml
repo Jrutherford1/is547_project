@@ -4,14 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="808c41b2-d989-40ec-acd2-cc56c8e47cf0" name="Changes" comment="update gitignore">
-      <change afterPath="$PROJECT_DIR$/.claude/agents/feature-planner.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.claude/agents/python-coder.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.claude/commands/document-session.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.claude/commands/implement-improvement.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_pipeline/neo4j_export.py" afterDir="false" />
+    <list default="true" id="808c41b2-d989-40ec-acd2-cc56c8e47cf0" name="Changes" comment="adding more files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CLAUDE.md" beforeDir="false" afterPath="$PROJECT_DIR$/CLAUDE.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/neo4j_export/csv/doc_mentions_location.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/neo4j_export/csv/doc_mentions_location.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/neo4j_export/csv/doc_mentions_org.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/neo4j_export/csv/doc_mentions_org.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/neo4j_export/csv/doc_mentions_person.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/neo4j_export/csv/doc_mentions_person.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/neo4j_export/csv/locations.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/neo4j_export/csv/locations.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/neo4j_export/csv/organizations.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/neo4j_export/csv/organizations.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/neo4j_export/csv/person_coappears.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/neo4j_export/csv/person_coappears.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/neo4j_export/csv/persons.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/neo4j_export/csv/persons.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/neo4j_export/neo4j_import.cypher" beforeDir="false" afterPath="$PROJECT_DIR$/data/neo4j_export/neo4j_import.cypher" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_pipeline/add_nlp_terms_to_metadata.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_pipeline/add_nlp_terms_to_metadata.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/is547_project.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/is547_project.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -19,8 +23,13 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CopilotPersistence">
+    <persistenceIdMap>
+      <entry key="_/Users/johnrr3/PycharmProjects/IS547_Project" value="2u8dl2HFGszk9rHlakuP0KO4qmP" />
+    </persistenceIdMap>
+  </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="6639" />
+    <option name="cachedIndexableFilesCount" value="6668" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -84,28 +93,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.build_knowlege_graph.executor": "Run",
-    "Python.data_explore.executor": "Run",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "ai.playground.ignore.import.keys.banner.in.settings": "true",
-    "git-widget-placeholder": "#10 on branch__one",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "/Users/johnrr3/PycharmProjects/IS547_Project/.claude/commands",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.build_knowlege_graph.executor&quot;: &quot;Run&quot;,
+    &quot;Python.data_explore.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;ai.playground.ignore.import.keys.banner.in.settings&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;branch__one&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/johnrr3/PycharmProjects/IS547_Project/.claude/commands&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/.claude/commands" />
@@ -178,8 +187,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-PY-253.29346.142" />
-        <option value="bundled-python-sdk-f2b7a9f6281b-6e1f45a539f7-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.29346.142" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-PY-253.29346.308" />
+        <option value="bundled-python-sdk-ca5e2b39c7df-6e1f45a539f7-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.29346.308" />
       </set>
     </attachedChunks>
   </component>
@@ -275,6 +284,15 @@
       <workItem from="1765226989487" duration="28000" />
       <workItem from="1766585673657" duration="433000" />
       <workItem from="1768134914226" duration="300000" />
+      <workItem from="1768230623707" duration="1007000" />
+      <workItem from="1768231730644" duration="9897000" />
+      <workItem from="1768403976543" duration="706000" />
+      <workItem from="1768406071302" duration="2586000" />
+      <workItem from="1768583153260" duration="1000000" />
+      <workItem from="1768767904247" duration="642000" />
+      <workItem from="1768827264412" duration="1368000" />
+      <workItem from="1768828650583" duration="32000" />
+      <workItem from="1769289819509" duration="9407000" />
     </task>
     <task id="LOCAL-00001" summary="starting basic processing and setup">
       <option name="closed" value="true" />
@@ -588,15 +606,29 @@
       <option name="project" value="LOCAL" />
       <updated>1768136306042</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="very first version of export to neo4j, lots of data cleaning needs to be done, remodeling, something.....">
+      <option name="closed" value="true" />
+      <created>1768142225402</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1768142225402</updated>
+    </task>
+    <task id="LOCAL-00041" summary="adding more files">
+      <option name="closed" value="true" />
+      <created>1768142258792</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1768142258792</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added final_updated_committee_names.csv to git" />
-    <MESSAGE value="ran the code and produced the final names, noticed that empty committees and folders deleted.  Does that matter?  I was using empties as evidence nothing was there to begin with, but is this a &quot;tree fell in forest&quot; situation??" />
     <MESSAGE value="documentation, found errors" />
     <MESSAGE value="attempted to find and resolve errors, not sure why 381 files are not renamed.  There is a file for each original.  I'm thinking these are the ones I manually updated dates for???" />
     <MESSAGE value="I found the error, it was 311 files, Related Docs don't get renamed!  Eliminated one function" />
@@ -620,7 +652,9 @@
     <MESSAGE value="updaed knowledge graph creation." />
     <MESSAGE value="add claude.md" />
     <MESSAGE value="update gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="update gitignore" />
+    <MESSAGE value="very first version of export to neo4j, lots of data cleaning needs to be done, remodeling, something....." />
+    <MESSAGE value="adding more files" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding more files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

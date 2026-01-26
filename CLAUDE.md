@@ -33,6 +33,9 @@ IS547_Project/
 │   ├── final_file_naming.py     # Final renaming with collision handling
 │   ├── enhance_metadata.py      # JSON-LD metadata + SHA-256 checksums
 │   ├── add_nlp_terms_to_metadata.py  # Batch NLP entity extraction
+│   ├── text_quality.py          # Text quality validation (pre-NLP)
+│   ├── entity_validation.py     # Entity filtering (post-NLP)
+│   ├── nlp_quality_report.py    # Quality tracking and reporting
 │   ├── nlp_term_extraction_preview.py # Text extraction from docs
 │   ├── build_redacted_knowlege_graph.py # Knowledge graph builder
 │   ├── neo4j_export.py          # Export to Neo4j (Cypher + CSV)
@@ -46,7 +49,8 @@ IS547_Project/
 ├── knowledge_graph_explorer.html # Interactive person-document graph
 ├── project_metadata.jsonld      # Dataset-level Schema.org metadata
 ├── docs/                        # Project documentation
-│   └── sessions/                # Work session logs
+│   ├── sessions/                # Work session logs
+│   └── features/                # Feature implementation plans
 ├── requirements.txt             # Python dependencies
 └── README.md                    # Project documentation
 ```
@@ -61,6 +65,8 @@ The pipeline processes documents through these stages:
 4. **Finalize Names** (`final_file_naming.py`) - Apply manual corrections, handle collisions
 5. **Enhance Metadata** (`enhance_metadata.py`) - Create JSON-LD files with SHA-256 checksums
 6. **NLP Extraction** (`add_nlp_terms_to_metadata.py`) - Extract entities with spaCy batch processing
+   - Includes quality validation via `text_quality.py` and `entity_validation.py`
+   - Generates quality reports via `nlp_quality_report.py`
 7. **Build Graph** (`build_redacted_knowlege_graph.py`) - Generate interactive knowledge graph
 8. **Neo4j Export** (`neo4j_export.py`) - Export to Neo4j graph database (optional)
 
@@ -98,6 +104,13 @@ check_person_entities()
 from data_pipeline.nlp_term_extraction_preview import run_entity_preview
 run_entity_preview(limit=50)
 ```
+
+### Reprocess entities with improved validation
+```python
+from data_pipeline.add_nlp_terms_to_metadata import reprocess_all_entities
+reprocess_all_entities(report_path="data/nlp_quality_report.json")
+```
+This clears existing entities and re-extracts with quality filtering
 
 ### Export to Neo4j
 ```python
@@ -161,3 +174,25 @@ The `knowledge_graph_explorer.html` visualization provides:
 - **Static layout**: Knowledge graph uses frozen physics for stable viewing
 - **No server required**: Visualization runs entirely client-side
 - **Neo4j export**: Supports both Cypher scripts and CSV bulk import formats
+- **Quality validation**: Text quality scoring and entity validation filter garbage/corrupted extractions
+- **Quality reporting**: Track entity rejection rates and identify problematic source documents
+
+## Planned Features
+
+### GraphRAG Ollama Integration (Planned)
+Adds local, privacy-preserving semantic search and Q&A capabilities using Neo4j GraphRAG + Ollama.
+
+**Status:** Fully planned, not yet implemented
+**Plan location:** `docs/features/feature-graphrag-ollama-integration.md`
+
+**Capabilities:**
+- Semantic document search via vector embeddings
+- Hybrid retrieval (semantic + keyword + graph)
+- Natural language Q&A about committees, people, topics
+- 100% local processing (no external APIs)
+
+**Models:**
+- Embeddings: nomic-embed-text (768-dim)
+- LLM: llama3.2 (8B parameters, 128K context)
+
+**Implementation estimate:** 8-12 hours coding + 90 minutes runtime

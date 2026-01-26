@@ -1,6 +1,4 @@
 name:ID(Location),mentionCount:int
-4pm-5pm,1
-8/15/2016,1
 A. Librarianship ←Add,1
 AC,4
 ACS,3
@@ -40,7 +38,6 @@ Armenia,3
 Arthur,1
 Assam,1
 Assessment,1
-Asst,1
 Atoma,1
 Atoma Batoma,34
 Attendance,2
@@ -73,10 +70,8 @@ Bloomington,2
 Bookstacks,3
 Boston,1
 Box,12
-"Box
-Upcoming",1
-"Box 
-Examples",1
+Box Examples,1
+Box Upcoming,1
 Box “LAC 2020-2021,1
 Braille,1
 Braxton,3
@@ -411,30 +406,24 @@ Newton,2
 Nigeria,5
 Nisha,1
 Norris,1
-"North
-America",1
+North America,1
 North Carolina,1
-"North-South Hallway 
-Continue",1
+North-South Hallway Continue,1
 Nuala Koetter,1
 Nuvi,1
 OA,4
 OH,2
 OVCR,5
-"Oak
-Street",2
 Oak St,2
 Oak St.,17
-"Oak St.
-Special",1
-Oak Street,17
+Oak St. Special,1
+Oak Street,18
 Oak Street -,1
 Oct,2
 Ohio,3
 Oklahoma,2
 Oman,2
-"Optimal Workshop
-4",1
+Optimal Workshop 4,1
 Oracle,1
 Orange,1
 Oregon,4
@@ -494,7 +483,7 @@ Research Park,1
 Reserve Center,1
 Revised,1
 Rimkus,2
-Rm,6
+Rm,5
 Rochester,1
 Rock Island,3
 Romania,6
@@ -553,10 +542,8 @@ Stanford,3
 Sue Searing,1
 Suggested,1
 Supporting,2
-"Svetlana Vranic-
-Approved",1
-"Svetlana Vranic-
-Sowers",1
+Svetlana Vranic- Approved,1
+Svetlana Vranic- Sowers,1
 Swanlund,1
 Sweden,1
 Switzerland,1
@@ -643,7 +630,6 @@ http://www.library.illinois.edu,1
 http://www.library.illinois.edu/committee/exec/supplement/2005-2006/Confidentiality_of_Reports.html,1
 http://www.library.illinois.edu/it/helpdesk/groupspaces/main306sc.html,1
 https://covid19.illinois.edu/on-campus/working-in-university-faciliti,1
-https://uillinoisedu.sharepoint.com/:w:/s/UniversityLibraryDEIATaskForce/EQ-wNQqd0XVFoo2L0DN_YVIBJVN0W7OAMswJRbGuTp8r2Q?e=BHy7PI,1
 jdc6@illinois.edu,10
 keywords)—12%,1
 new plaza,1
@@ -656,8 +642,6 @@ the Mortenson Center,9
 the NS Corridor,1
 the Qualitative 40%,2
 the State of Illinois,9
-"the United
-States",1
 the United Kingdom,2
 the United States,11
 the West Stacks,1
@@ -666,7 +650,5 @@ us,1
 weekends,1
 west corridor,1
 www.library.illinois.edu/administration/services/policies/permission_film.html,2
-~50,1
-½ %,2
 ’s,1
 • Approved,1
