@@ -4,11 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="808c41b2-d989-40ec-acd2-cc56c8e47cf0" name="Changes" comment="cleaning up the data for graph, added more claude documentation and all">
-      <change afterPath="$PROJECT_DIR$/data/graph_nlp_quality_report.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/sessions/session-2026-01-11-1720.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/sessions/session-2026-01-26-entity-cleanup.md" afterDir="false" />
+    <list default="true" id="808c41b2-d989-40ec-acd2-cc56c8e47cf0" name="Changes" comment="pre graphrag implementation push">
+      <change afterPath="$PROJECT_DIR$/data_pipeline/cleanup_graph_entities.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_pipeline/generate_embeddings.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_pipeline/graphrag_qa.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_pipeline/graphrag_retriever.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_pipeline/graphrag_verification.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data_pipeline/setup_vector_index.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CLAUDE.md" beforeDir="false" afterPath="$PROJECT_DIR$/CLAUDE.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/sessions/session-2026-01-26-entity-cleanup.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/sessions/session-2026-01-26-entity-cleanup.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/is547_project.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/is547_project.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -22,7 +27,7 @@
     </persistenceIdMap>
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="6668" />
+    <option name="cachedIndexableFilesCount" value="8963" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -285,7 +290,8 @@
       <workItem from="1768767904247" duration="642000" />
       <workItem from="1768827264412" duration="1368000" />
       <workItem from="1768828650583" duration="32000" />
-      <workItem from="1769289819509" duration="11926000" />
+      <workItem from="1769289819509" duration="20891000" />
+      <workItem from="1769524619148" duration="661000" />
     </task>
     <task id="LOCAL-00001" summary="starting basic processing and setup">
       <option name="closed" value="true" />
@@ -639,7 +645,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769444881319</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="pre graphrag implementation push">
+      <option name="closed" value="true" />
+      <created>1769447327493</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1769447327493</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -657,7 +671,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="attempted to find and resolve errors, not sure why 381 files are not renamed.  There is a file for each original.  I'm thinking these are the ones I manually updated dates for???" />
     <MESSAGE value="I found the error, it was 311 files, Related Docs don't get renamed!  Eliminated one function" />
     <MESSAGE value="update some documentation, updated README.md" />
     <MESSAGE value="updated README.md" />
@@ -682,7 +695,8 @@
     <MESSAGE value="very first version of export to neo4j, lots of data cleaning needs to be done, remodeling, something....." />
     <MESSAGE value="adding more files" />
     <MESSAGE value="cleaning up the data for graph, added more claude documentation and all" />
-    <option name="LAST_COMMIT_MESSAGE" value="cleaning up the data for graph, added more claude documentation and all" />
+    <MESSAGE value="pre graphrag implementation push" />
+    <option name="LAST_COMMIT_MESSAGE" value="pre graphrag implementation push" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
