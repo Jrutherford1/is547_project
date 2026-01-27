@@ -4,17 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="808c41b2-d989-40ec-acd2-cc56c8e47cf0" name="Changes" comment="pre graphrag implementation push">
-      <change afterPath="$PROJECT_DIR$/data_pipeline/cleanup_graph_entities.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_pipeline/generate_embeddings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_pipeline/graphrag_qa.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_pipeline/graphrag_retriever.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_pipeline/graphrag_verification.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_pipeline/setup_vector_index.py" afterDir="false" />
+    <list default="true" id="808c41b2-d989-40ec-acd2-cc56c8e47cf0" name="Changes" comment="graphing integrated, works a little bit, i think data will need to be re-embedded/indexed">
+      <change beforePath="$PROJECT_DIR$/.ai/mcp/mcp.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CLAUDE.md" beforeDir="false" afterPath="$PROJECT_DIR$/CLAUDE.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/sessions/session-2026-01-26-entity-cleanup.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/sessions/session-2026-01-26-entity-cleanup.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/is547_project.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/is547_project.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +44,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="branch_one" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -91,28 +83,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.build_knowlege_graph.executor&quot;: &quot;Run&quot;,
-    &quot;Python.data_explore.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;ai.playground.ignore.import.keys.banner.in.settings&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;branch__one&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/johnrr3/PycharmProjects/IS547_Project/.claude/commands&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.build_knowlege_graph.executor": "Run",
+    "Python.data_explore.executor": "Run",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "ai.playground.ignore.import.keys.banner.in.settings": "true",
+    "git-widget-placeholder": "graphrag__branch",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "/Users/johnrr3/PycharmProjects/IS547_Project/.claude/commands",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/.claude/commands" />
@@ -291,7 +283,7 @@
       <workItem from="1768827264412" duration="1368000" />
       <workItem from="1768828650583" duration="32000" />
       <workItem from="1769289819509" duration="20891000" />
-      <workItem from="1769524619148" duration="661000" />
+      <workItem from="1769524619148" duration="8644000" />
     </task>
     <task id="LOCAL-00001" summary="starting basic processing and setup">
       <option name="closed" value="true" />
@@ -653,7 +645,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769447327493</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="graphing integrated, works a little bit, i think data will need to be re-embedded/indexed">
+      <option name="closed" value="true" />
+      <created>1769525315849</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1769525315849</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -671,7 +671,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="I found the error, it was 311 files, Related Docs don't get renamed!  Eliminated one function" />
     <MESSAGE value="update some documentation, updated README.md" />
     <MESSAGE value="updated README.md" />
     <MESSAGE value="updated README.md, created functions to add separate metadata Json files that include fixity checks.  All this is first trial stuff, needs reviews of all code and any documenation upkeep.  Also add a project-wide metadata file next." />
@@ -696,7 +695,8 @@
     <MESSAGE value="adding more files" />
     <MESSAGE value="cleaning up the data for graph, added more claude documentation and all" />
     <MESSAGE value="pre graphrag implementation push" />
-    <option name="LAST_COMMIT_MESSAGE" value="pre graphrag implementation push" />
+    <MESSAGE value="graphing integrated, works a little bit, i think data will need to be re-embedded/indexed" />
+    <option name="LAST_COMMIT_MESSAGE" value="graphing integrated, works a little bit, i think data will need to be re-embedded/indexed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
